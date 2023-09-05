@@ -1,0 +1,15 @@
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\bin\Debug\net6.0\SupplyChainManagement.BAL.deps.json
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\bin\Debug\net6.0\SupplyChainManagement.BAL.dll
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\bin\Debug\net6.0\SupplyChainManagement.BAL.pdb
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\bin\Debug\net6.0\SupplyChainManagement.Entity.dll
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\bin\Debug\net6.0\SupplyChainManagement.Entity.pdb
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\obj\Debug\net6.0\SupplyChainManagement.BAL.csproj.AssemblyReference.cache
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\obj\Debug\net6.0\SupplyChainManagement.BAL.GeneratedMSBuildEditorConfig.editorconfig
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\obj\Debug\net6.0\SupplyChainManagement.BAL.AssemblyInfoInputs.cache
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\obj\Debug\net6.0\SupplyChainManagement.BAL.AssemblyInfo.cs
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\obj\Debug\net6.0\SupplyChainManagement.BAL.csproj.CoreCompileInputs.cache
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\obj\Debug\net6.0\SupplyChainManagement.BAL.csproj.CopyComplete
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\obj\Debug\net6.0\SupplyChainManagement.BAL.dll
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\obj\Debug\net6.0\refint\SupplyChainManagement.BAL.dll
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\obj\Debug\net6.0\SupplyChainManagement.BAL.pdb
+E:\ShellCaseStudyProject\SupplyChainManagement.BAL\obj\Debug\net6.0\ref\SupplyChainManagement.BAL.dll

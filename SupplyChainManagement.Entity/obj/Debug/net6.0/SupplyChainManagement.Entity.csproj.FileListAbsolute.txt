@@ -1,0 +1,11 @@
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\bin\Debug\net6.0\SupplyChainManagement.Entity.deps.json
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\bin\Debug\net6.0\SupplyChainManagement.Entity.dll
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\bin\Debug\net6.0\SupplyChainManagement.Entity.pdb
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Debug\net6.0\SupplyChainManagement.Entity.GeneratedMSBuildEditorConfig.editorconfig
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Debug\net6.0\SupplyChainManagement.Entity.AssemblyInfoInputs.cache
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Debug\net6.0\SupplyChainManagement.Entity.AssemblyInfo.cs
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Debug\net6.0\SupplyChainManagement.Entity.csproj.CoreCompileInputs.cache
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Debug\net6.0\SupplyChainManagement.Entity.dll
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Debug\net6.0\refint\SupplyChainManagement.Entity.dll
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Debug\net6.0\SupplyChainManagement.Entity.pdb
+E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Debug\net6.0\ref\SupplyChainManagement.Entity.dll
