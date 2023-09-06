@@ -10,7 +10,7 @@ namespace SupplyChainManagement.Repository
     public interface IProdRepo
     {
         string AddProduct(Product product);
-        string UpdateProduct(Product movie, int id);
+        string UpdateProduct(Product movie);
         string DeleteProductById(int id);
         string DeleteAllProducts();
         Product GetProductById(int id);

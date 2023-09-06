@@ -10,7 +10,7 @@ namespace SupplyChainManagement.Repository
     public interface IOrderRepo
     {
         string AddOrder(Order Order);
-        string UpdateOrder(Order Order, int id);
+        string UpdateOrder(Order Order);
         string DeleteOrderById(int id);
         string DeleteAllOrders();
         Order GetOrderById(int id);

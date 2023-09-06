@@ -10,7 +10,7 @@ namespace SupplyChainManagement.Repository
     public interface IInventRepo
     {
         string AddInventory(Inventory inventory);
-        string UpdateInventory(Inventory inventory, int id);
+        string UpdateInventory(Inventory inventory);
         string DeleteInventoryById(int id);
         string DeleteAllInventories();
         Inventory GetInventoryById(int id);

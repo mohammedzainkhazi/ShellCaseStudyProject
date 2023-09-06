@@ -10,7 +10,7 @@ namespace SupplyChainManagement.Repository
     public interface ILocationRepo
     {
         string AddLocation(Location Location);
-        string UpdateLocation(Location Location, int id);
+        string UpdateLocation(Location Location);
         string DeleteLocationById(int id);
         string DeleteAllLocations();
         Location GetLocationById(int id);

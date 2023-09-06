@@ -10,7 +10,7 @@ namespace SupplyChainManagement.Repository
     public interface IShipmentRepo
     {
         string AddShipment(Shipment Shipment);
-        string UpdateShipment(Shipment Shipment, int id);
+        string UpdateShipment(Shipment Shipment);
         string DeleteShipmentById(int id);
         string DeleteAllShipments();
         Shipment GetShipmentById(int id);

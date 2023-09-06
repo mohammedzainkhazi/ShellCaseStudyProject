@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x/1VxA2u5NsMr8hCUmYzleQcEnWoCbbQhs0BPA55A1C2fB3NG4A72bSaGEMIBlG2gSgUzWkmm/DF4ZQDfVN61w==",
+  "dgSpecHash": "b2ayAn7LVMgAvE4L5kUzG8m+NO3ymr2SrxkODMyorgUuqrB4DyARFppaiARXC4MACT3r5cvpTkVF8URcr4mKdw==",
   "success": true,
-  "projectFilePath": "E:\\ShellCaseStudyProject\\SupplyChainManagement.Entity.Data\\SupplyChainManagement.Data.csproj",
+  "projectFilePath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.Data\\SupplyChainManagement.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rootzain\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.21\\microsoft.entityframeworkcore.6.0.21.nupkg.sha512",
     "C:\\Users\\rootzain\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.21\\microsoft.entityframeworkcore.abstractions.6.0.21.nupkg.sha512",

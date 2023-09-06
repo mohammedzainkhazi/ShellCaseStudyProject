@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CDWLPrKB4I0BpmJ7OqgZOBkZfDoZ+AY5PwAaIHcXQmwENU+v7zFnynCPnfhd9OKugRnrUHUMjiQDvKcH9OqQ4g==",
+  "dgSpecHash": "TWJWwE2QBbiVYEkUIIYJQ6BeEzt8yFRWEv+8IWuC1UyJMLXR4Rqkqjc0OupZajO1GnjZm5Pav1MoB7Oc0taU1A==",
   "success": true,
-  "projectFilePath": "E:\\ShellCaseStudyProject\\SupplyChainManagement.BAL\\SupplyChainManagement.BAL.csproj",
+  "projectFilePath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BAL\\SupplyChainManagement.BAL.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

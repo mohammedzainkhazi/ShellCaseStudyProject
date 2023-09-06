@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChainManagement", "SupplyChainManagement.csproj", "{A441A719-9B74-4563-BD2F-D328465B53E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupplyChainManagement.BL", "SupplyChainManagement.BL.csproj", "{A441A719-9B74-4563-BD2F-D328465B53E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChainManagement.BAL", "..\SupplyChainManagement.BAL\SupplyChainManagement.BAL.csproj", "{F98FD823-4661-4B0D-BDFD-E982FB9ED356}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupplyChainManagement.Entity", "..\SupplyChainManagement.Entity\SupplyChainManagement.Entity.csproj", "{08C63E8F-F435-4E17-A1E0-AE2C5017CC4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChainManagement.Entity", "..\SupplyChainManagement.Entity\SupplyChainManagement.Entity.csproj", "{08C63E8F-F435-4E17-A1E0-AE2C5017CC4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupplyChainManagement.API", "..\SupplyChainManagement.Entity.API\SupplyChainManagement.API.csproj", "{B509EF3E-0D61-42A7-B4ED-F4C9AC33149D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChainManagement.API", "..\SupplyChainManagement.Entity.API\SupplyChainManagement.API.csproj", "{B509EF3E-0D61-42A7-B4ED-F4C9AC33149D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChainManagement.Data", "..\SupplyChainManagement.Entity.Data\SupplyChainManagement.Data.csproj", "{38F5C031-9D85-4883-ADE2-A34F39FABECF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupplyChainManagement.Data", "..\SupplyChainManagement.Entity.Data\SupplyChainManagement.Data.csproj", "{38F5C031-9D85-4883-ADE2-A34F39FABECF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{A441A719-9B74-4563-BD2F-D328465B53E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A441A719-9B74-4563-BD2F-D328465B53E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A441A719-9B74-4563-BD2F-D328465B53E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F98FD823-4661-4B0D-BDFD-E982FB9ED356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F98FD823-4661-4B0D-BDFD-E982FB9ED356}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F98FD823-4661-4B0D-BDFD-E982FB9ED356}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F98FD823-4661-4B0D-BDFD-E982FB9ED356}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08C63E8F-F435-4E17-A1E0-AE2C5017CC4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{08C63E8F-F435-4E17-A1E0-AE2C5017CC4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08C63E8F-F435-4E17-A1E0-AE2C5017CC4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
