@@ -601,11 +601,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.Data\\SupplyChainManagement.Data.csproj",
+      "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj",
       "projectName": "SupplyChainManagement.Data",
-      "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.Data\\SupplyChainManagement.Data.csproj",
+      "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj",
       "packagesPath": "C:\\Users\\rootzain\\.nuget\\packages\\",
-      "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.Data\\obj\\",
+      "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rootzain\\AppData\\Roaming\\NuGet\\NuGet.Config",

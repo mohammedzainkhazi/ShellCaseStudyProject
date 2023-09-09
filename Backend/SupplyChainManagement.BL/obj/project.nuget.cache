@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FmnxBVm+vgEdOsTapSWxl82Z8S318u4i6xKiAhMSLGFMP1ocIlEUWf3E7yaXdayzy5QzAF2+Mg5m7EDC73kzFA==",
+  "dgSpecHash": "Y0cuYoG8Hx4TVlqclrydgD0Nri2LEWURvZBhQiNZK4C9lcYJJo/lAmX7KrE8O4tlVMo6XfV0cxfq9fVRTabVUg==",
   "success": true,
-  "projectFilePath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.API\\SupplyChainManagement.BL.csproj",
+  "projectFilePath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rootzain\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.9\\microsoft.aspnet.mvc.5.2.9.nupkg.sha512",
     "C:\\Users\\rootzain\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.9\\microsoft.aspnet.razor.3.2.9.nupkg.sha512",

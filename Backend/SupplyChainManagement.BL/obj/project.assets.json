@@ -4956,11 +4956,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.API\\SupplyChainManagement.BL.csproj",
+      "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj",
       "projectName": "SupplyChainManagement.BL",
-      "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.API\\SupplyChainManagement.BL.csproj",
+      "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj",
       "packagesPath": "C:\\Users\\rootzain\\.nuget\\packages\\",
-      "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.API\\obj\\",
+      "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rootzain\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4977,6 +4977,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj": {
+              "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj"
+            },
             "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.Data\\SupplyChainManagement.Data.csproj": {
               "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.Data\\SupplyChainManagement.Data.csproj"
             },
