@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SupplyChainManagement.BL.Services;
 using SupplyChainManagement.Entity.Models;
-using SupplyChainManagement.Services;
 
 namespace SupplyChainManagement.API.Controllers
 {

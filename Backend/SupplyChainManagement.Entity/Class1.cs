@@ -1,4 +1,4 @@
-﻿namespace SupplyChainManagement.BL
+﻿namespace SupplyChainManagement.Entity
 {
     public class Class1
     {
