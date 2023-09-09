@@ -4931,8 +4931,8 @@
     },
     "SupplyChainManagement.Data/1.0.0": {
       "type": "project",
-      "path": "../SupplyChainManagement.Entity.Data/SupplyChainManagement.Data.csproj",
-      "msbuildProject": "../SupplyChainManagement.Entity.Data/SupplyChainManagement.Data.csproj"
+      "path": "../SupplyChainManagement.Data/SupplyChainManagement.Data.csproj",
+      "msbuildProject": "../SupplyChainManagement.Data/SupplyChainManagement.Data.csproj"
     },
     "SupplyChainManagement.Entity/1.0.0": {
       "type": "project",
@@ -4979,9 +4979,6 @@
           "projectReferences": {
             "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj": {
               "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj"
-            },
-            "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.Data\\SupplyChainManagement.Data.csproj": {
-              "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity.Data\\SupplyChainManagement.Data.csproj"
             },
             "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
               "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"

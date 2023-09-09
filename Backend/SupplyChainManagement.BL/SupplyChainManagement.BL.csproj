@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SupplyChainManagement.Data\SupplyChainManagement.Data.csproj" />
-    <ProjectReference Include="..\SupplyChainManagement.Entity.Data\SupplyChainManagement.Data.csproj" />
     <ProjectReference Include="..\SupplyChainManagement.Entity\SupplyChainManagement.Entity.csproj" />
   </ItemGroup>
 
