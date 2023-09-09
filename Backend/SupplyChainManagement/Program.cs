@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SupplyChainManagement;
 using SupplyChainManagement.Data.Repositories;
 using SupplyChainManagement.Repository;
+using SupplyChainManagement.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,11 +13,17 @@ builder.Services.AddControllers();
 builder.Services.AddMvc();
 //Add Repo Scoped Interfaces and Classes 
 
-builder.Services.AddTransient<IInventRepo, InventRepo>();
-builder.Services.AddTransient<ILocationRepo, LocationRepo>();
-builder.Services.AddTransient<IProdRepo, ProdRepo>();
-builder.Services.AddTransient<IOrderRepo, OrderRepo>();
-builder.Services.AddTransient<IShipmentRepo, ShipmentRepo>();
+builder.Services.AddScoped<IInventRepo, InventRepo>();
+builder.Services.AddScoped<ILocationRepo, LocationRepo>();
+builder.Services.AddScoped<IProdRepo, ProdRepo>();
+builder.Services.AddScoped<IOrderRepo, OrderRepo>();
+builder.Services.AddScoped<IShipmentRepo, ShipmentRepo>();
+builder.Services.AddScoped<InventoryService, InventoryService>();
+builder.Services.AddScoped<LocationService, LocationService>();
+builder.Services.AddScoped<ProductService, ProductService>();
+builder.Services.AddScoped<OrderService, OrderService>();
+builder.Services.AddScoped<ShipmentService, ShipmentService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -39,10 +46,5 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
 
 app.Run();
