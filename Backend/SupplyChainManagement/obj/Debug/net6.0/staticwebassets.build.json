@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "re92UB2/8fsNKJhFYnU3t8J9HosaF9KSAljtZ+51HHQ=",
-  "Source": "SupplyChainManagement.BL",
-  "BasePath": "_content/SupplyChainManagement.BL",
+  "Hash": "7HQTf4tve4b9mUr8eR+tgyQ2yysAK5LMHoL9Oygitvc=",
+  "Source": "SupplyChainManagement.API",
+  "BasePath": "_content/SupplyChainManagement.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

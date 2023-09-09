@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "/NIOFBixcTW4MXkVU+Fn8eKOKyGw7YJUreJaXIDMf2M=",
-  "Source": "SupplyChainManagement",
-  "BasePath": "_content/SupplyChainManagement",
+  "Hash": "NNhisgXkk+fNAPmm2GSWCUgtyuEm4iSFzvdZWfC3Fc0=",
+  "Source": "SupplyChainManagement.API",
+  "BasePath": "_content/SupplyChainManagement.API",
   "Mode": "Default",
   "ManifestType": "Publish",
   "ReferencedProjectsConfiguration": [],

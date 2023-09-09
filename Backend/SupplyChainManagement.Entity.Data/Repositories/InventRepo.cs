@@ -31,7 +31,7 @@ namespace SupplyChainManagement.Data.Repositories
         public string DeleteInventoryById(int id)
         {
             var inventory = _db.inventory.Find(id);
-            _db.Remove(inventory);
+            _db.inventory.Remove(inventory);
             _db.SaveChanges();
             return "Deleted Inventory : " + id;
         }

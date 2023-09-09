@@ -1,11 +1,22 @@
 using Microsoft.EntityFrameworkCore;
 using SupplyChainManagement;
+using SupplyChainManagement.Data.Repositories;
+using SupplyChainManagement.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddMvc();
+//Add Repo Scoped Interfaces and Classes 
+
+builder.Services.AddTransient<IInventRepo, InventRepo>();
+builder.Services.AddTransient<ILocationRepo, LocationRepo>();
+builder.Services.AddTransient<IProdRepo, ProdRepo>();
+builder.Services.AddTransient<IOrderRepo, OrderRepo>();
+builder.Services.AddTransient<IShipmentRepo, ShipmentRepo>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -28,5 +39,10 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.Run();

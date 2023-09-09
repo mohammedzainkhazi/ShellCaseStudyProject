@@ -1,0 +1,17 @@
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\bin\Release\net6.0\SupplyChainManagement.BL.deps.json
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\bin\Release\net6.0\SupplyChainManagement.BL.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\bin\Release\net6.0\SupplyChainManagement.BL.pdb
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\bin\Release\net6.0\SupplyChainManagement.Data.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\bin\Release\net6.0\SupplyChainManagement.Entity.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\bin\Release\net6.0\SupplyChainManagement.Data.pdb
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\bin\Release\net6.0\SupplyChainManagement.Entity.pdb
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\obj\Release\net6.0\SupplyChainManagement.BL.csproj.AssemblyReference.cache
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\obj\Release\net6.0\SupplyChainManagement.BL.GeneratedMSBuildEditorConfig.editorconfig
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\obj\Release\net6.0\SupplyChainManagement.BL.AssemblyInfoInputs.cache
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\obj\Release\net6.0\SupplyChainManagement.BL.AssemblyInfo.cs
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\obj\Release\net6.0\SupplyChainManagement.BL.csproj.CoreCompileInputs.cache
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\obj\Release\net6.0\SupplyChainManagement.BL.csproj.CopyComplete
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\obj\Release\net6.0\SupplyChainManagement.BL.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\obj\Release\net6.0\refint\SupplyChainManagement.BL.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\obj\Release\net6.0\SupplyChainManagement.BL.pdb
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity.API\obj\Release\net6.0\ref\SupplyChainManagement.BL.dll

@@ -9,3 +9,14 @@ E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyC
 E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Release\net6.0\refint\SupplyChainManagement.Entity.dll
 E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyChainManagement.Entity.pdb
 E:\ShellCaseStudyProject\SupplyChainManagement.Entity\obj\Release\net6.0\ref\SupplyChainManagement.Entity.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\bin\Release\net6.0\SupplyChainManagement.Entity.deps.json
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\bin\Release\net6.0\SupplyChainManagement.Entity.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\bin\Release\net6.0\SupplyChainManagement.Entity.pdb
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyChainManagement.Entity.GeneratedMSBuildEditorConfig.editorconfig
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyChainManagement.Entity.AssemblyInfoInputs.cache
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyChainManagement.Entity.AssemblyInfo.cs
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyChainManagement.Entity.csproj.CoreCompileInputs.cache
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyChainManagement.Entity.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\refint\SupplyChainManagement.Entity.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyChainManagement.Entity.pdb
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\ref\SupplyChainManagement.Entity.dll
