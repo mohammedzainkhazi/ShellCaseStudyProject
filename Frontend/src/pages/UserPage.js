@@ -157,7 +157,7 @@ export default function UserPage() {
           <Typography variant="h4" gutterBottom>
             User
           </Typography>
-          <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+          <Button className='!bg-blue-500' variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
           </Button>
         </Stack>

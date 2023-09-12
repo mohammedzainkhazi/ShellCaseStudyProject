@@ -11,9 +11,11 @@ namespace SupplyChainManagement.Entity.Models
 
         [ForeignKey("Location")]
         public int location_id { get; set; }
+        public Location Location { get; set; }
 
         [ForeignKey("Product")]
         public int product_id { get; set; }
+        public Product Product { get; set; }
         public int quantity_available { get; set; }
 
         public DateTime last_updated { get; set; }

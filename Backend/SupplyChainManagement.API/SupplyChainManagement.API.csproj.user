@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
-    <NameOfLastUsedPublishProfile>E:\ShellCaseStudyProject\Backend\SupplyChainManagement\Properties\PublishProfiles\registry.hub.docker.com_rootzain.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>E:\ShellCaseStudyProject\Backend\SupplyChainManagement.API\Properties\PublishProfiles\FolderProfile.pubxml</NameOfLastUsedPublishProfile>
     <WebStackScaffolding_ControllerDialogWidth>650</WebStackScaffolding_ControllerDialogWidth>
     <ActiveDebugProfile>SupplyChainManagement</ActiveDebugProfile>
   </PropertyGroup>

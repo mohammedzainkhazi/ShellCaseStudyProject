@@ -9,6 +9,7 @@ namespace SupplyChainManagement.Entity.Models
         public int order_id { get; set; }
         [ForeignKey("Product")]
         public int product_id { get; set; }
+        public Product Product { get; set; }
         public int quantity_ordered { get; set; }
         public DateTime order_date { get; set; }
         public string status { get; set; }

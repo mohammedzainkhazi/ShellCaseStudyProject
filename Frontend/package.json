@@ -78,5 +78,10 @@
   },
   "overrides": {
     "nth-check": "2.1.1"
+  },
+  "react-dotenv": {
+    "whitelist": [
+      "API"
+    ]
   }
 }

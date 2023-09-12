@@ -57,7 +57,7 @@ export default function Nav({ openNav, onCloseNav }) {
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
         {/* <Logo /> */}
-        <img src='https://assets.stickpng.com/images/5954bb45deaf2c03413be353.png' alt="logo" height={100} width={100}/>
+        <img src='https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/Shell_logo.svg/1200px-Shell_logo.svg.png' alt="logo" height={100} width={100}/>
       </Box>
 
       <Box sx={{ mb: 5, mx: 2.5 }}>

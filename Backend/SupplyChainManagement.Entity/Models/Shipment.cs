@@ -10,10 +10,12 @@ namespace SupplyChainManagement.Entity.Models
         public int shipment_id { get; set; }
 
         [ForeignKey("Order")]
-        public string order_id { get; set; }
+        public int order_id { get; set; }
+        public Order Order { get; set; }
 
         [ForeignKey("Product")]
         public int product_id { get; set;}
+        public Product Product { get; set; }
         public int source_location_id { get; set; }
         public int destination_location_id { get; set; }
         public DateTime shipment_date { get; set; }

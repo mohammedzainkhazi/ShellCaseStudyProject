@@ -44,6 +44,10 @@ namespace SupplyChainManagement.Data.Migrations
 
                     b.HasKey("inventory_id");
 
+                    b.HasIndex("location_id");
+
+                    b.HasIndex("product_id");
+
                     b.ToTable("inventory");
                 });
 
@@ -90,6 +94,8 @@ namespace SupplyChainManagement.Data.Migrations
 
                     b.HasKey("order_id");
 
+                    b.HasIndex("product_id");
+
                     b.ToTable("order");
                 });
 
@@ -101,8 +107,9 @@ namespace SupplyChainManagement.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("product_id"));
 
-                    b.Property<int>("price_per_unit")
-                        .HasColumnType("integer");
+                    b.Property<string>("price_per_unit")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("product_description")
                         .IsRequired()
@@ -112,8 +119,9 @@ namespace SupplyChainManagement.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("unit_of_measure")
-                        .HasColumnType("integer");
+                    b.Property<string>("unit_of_measure")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("product_id");
 
@@ -131,9 +139,8 @@ namespace SupplyChainManagement.Data.Migrations
                     b.Property<int>("destination_location_id")
                         .HasColumnType("integer");
 
-                    b.Property<string>("order_id")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("order_id")
+                        .HasColumnType("integer");
 
                     b.Property<int>("product_id")
                         .HasColumnType("integer");
@@ -149,6 +156,10 @@ namespace SupplyChainManagement.Data.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("shipment_id");
+
+                    b.HasIndex("order_id");
+
+                    b.HasIndex("product_id");
 
                     b.ToTable("shipment");
                 });
@@ -176,6 +187,55 @@ namespace SupplyChainManagement.Data.Migrations
                     b.HasKey("user_id");
 
                     b.ToTable("user");
+                });
+
+            modelBuilder.Entity("SupplyChainManagement.Entity.Models.Inventory", b =>
+                {
+                    b.HasOne("SupplyChainManagement.Entity.Models.Location", "Location")
+                        .WithMany()
+                        .HasForeignKey("location_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SupplyChainManagement.Entity.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("product_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Location");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("SupplyChainManagement.Entity.Models.Order", b =>
+                {
+                    b.HasOne("SupplyChainManagement.Entity.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("product_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("SupplyChainManagement.Entity.Models.Shipment", b =>
+                {
+                    b.HasOne("SupplyChainManagement.Entity.Models.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("order_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SupplyChainManagement.Entity.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("product_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }

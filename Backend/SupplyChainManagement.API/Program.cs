@@ -39,7 +39,7 @@ builder.Services.AddDbContext<ProjectDbContext>(options => options.UseNpgsql(dbc
 builder.Services.AddCors(options =>
     options.AddPolicy("MyPolicy",
         builder => {
-            builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            builder.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
         }
     )
 );
