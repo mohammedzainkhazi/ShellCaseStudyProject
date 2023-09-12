@@ -5,32 +5,32 @@ namespace SupplyChainManagement.Services
 {
     public class InventoryService
     {
-        private readonly InventRepo repo;
-        public InventoryService(InventRepo repo) { this.repo = repo; }
+        private readonly InventRepo _repo;
+        public InventoryService(InventRepo repo) { _repo = repo; }
 
         public string AddInventory(Inventory Inventory)
         {
-            return repo.AddInventory(Inventory);
+            return _repo.AddInventory(Inventory);
         }
         public string DeleteAllInventories()
         {
-            return repo.DeleteAllInventories();
+            return _repo.DeleteAllInventories();
         }
         public string DeleteInventoryById(int id)
         {
-            return repo.DeleteInventoryById(id);
+            return _repo.DeleteInventoryById(id);
         }
         public List<Inventory> GetAllInventories()
         {
-            return repo.GetAllInventories();
+            return _repo.GetAllInventories();
         }
         public Inventory GetInventoryById(int id)
         {
-            return repo.GetInventoryById(id);
+            return _repo.GetInventoryById(id);
         }
         public string UpdateInventory(Inventory Inventory)
         {
-            return repo.UpdateInventory(Inventory);
+            return _repo.UpdateInventory(Inventory);
         }
     }
 }

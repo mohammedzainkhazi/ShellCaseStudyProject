@@ -43,3 +43,5 @@ E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Data\obj\Debug\net6.0\Sup
 E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Data\obj\Debug\net6.0\refint\SupplyChainManagement.Data.dll
 E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Data\obj\Debug\net6.0\SupplyChainManagement.Data.pdb
 E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Data\obj\Debug\net6.0\ref\SupplyChainManagement.Data.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Data\bin\Debug\net6.0\SupplyChainManagement.Data.runtimeconfig.json
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Data\obj\Debug\net6.0\SupplyChainManagement.Data.genruntimeconfig.cache

@@ -1,3 +1,8 @@
+import { useEffect } from 'react';
+
+// React Router DOM 
+import { useNavigate } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 // @mui
 import { styled } from '@mui/material/styles';
@@ -6,10 +11,7 @@ import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 import { bgBlur } from '../../../utils/cssStyles';
 // components
 import Iconify from '../../../components/iconify';
-//
-import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
-import LanguagePopover from './LanguagePopover';
 import NotificationsPopover from './NotificationsPopover';
 
 // ----------------------------------------------------------------------
@@ -43,6 +45,15 @@ Header.propTypes = {
 };
 
 export default function Header({ onOpenNav }) {
+
+  const user = JSON.parse(localStorage.getItem('user'));
+  const nav = useNavigate();
+  useEffect(() => {
+    if(user === null){
+      nav('/login');
+    }
+  }, [])
+  
   return (
     <StyledRoot>
       <StyledToolbar>
@@ -56,8 +67,6 @@ export default function Header({ onOpenNav }) {
         >
           <Iconify icon="eva:menu-2-fill" />
         </IconButton>
-
-        <Searchbar />
         <Box sx={{ flexGrow: 1 }} />
 
         <Stack
@@ -68,9 +77,8 @@ export default function Header({ onOpenNav }) {
             sm: 1,
           }}
         >
-          <LanguagePopover />
           <NotificationsPopover />
-          <AccountPopover />
+          <AccountPopover user={user}/>
         </Stack>
       </StyledToolbar>
     </StyledRoot>

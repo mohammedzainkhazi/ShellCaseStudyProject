@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SupplyChainManagement.Entity.Models;
-using System.Threading.Tasks;
 namespace SupplyChainManagement
 {
     public class ProjectDbContext:DbContext
@@ -11,5 +10,6 @@ namespace SupplyChainManagement
         public DbSet<Product> product { get; set; }
         public DbSet<Order> order { get; set; }
         public DbSet<Shipment> shipment { get; set; }
+        public DbSet<User> user { get; set; }
     }
 }

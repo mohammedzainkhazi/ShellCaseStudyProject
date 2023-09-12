@@ -1,15 +1,21 @@
 import { Helmet } from 'react-helmet-async';
+
+// React Hooks 
+import { useState } from 'react';
+
 // @mui
 import { styled } from '@mui/material/styles';
-import { Link, Container, Typography, Divider, Stack, Button } from '@mui/material';
+import { Container, Typography, Divider } from '@mui/material';
+
+import SignUp from '../sections/auth/signup/SignUp';
+
+
 // hooks
 import useResponsive from '../hooks/useResponsive';
 // components
 import Logo from '../components/logo';
-import Iconify from '../components/iconify';
 // sections
 import { LoginForm } from '../sections/auth/login';
-
 // ----------------------------------------------------------------------
 
 const StyledRoot = styled('div')(({ theme }) => ({
@@ -43,6 +49,8 @@ const StyledContent = styled('div')(({ theme }) => ({
 export default function LoginPage() {
   const mdUp = useResponsive('up', 'md');
 
+  const [signUpPage, setsignUpPage] = useState(false);
+
   return (
     <>
       <Helmet>
@@ -73,32 +81,23 @@ export default function LoginPage() {
               Sign in to Minimal
             </Typography>
 
+            {signUpPage ?
             <Typography variant="body2" sx={{ mb: 5 }}>
-              Don’t have an account? {''}
-              <Link variant="subtitle2">Get started</Link>
-            </Typography>
-
-            <Stack direction="row" spacing={2}>
-              <Button fullWidth size="large" color="inherit" variant="outlined">
-                <Iconify icon="eva:google-fill" color="#DF3E30" width={22} height={22} />
-              </Button>
-
-              <Button fullWidth size="large" color="inherit" variant="outlined">
-                <Iconify icon="eva:facebook-fill" color="#1877F2" width={22} height={22} />
-              </Button>
-
-              <Button fullWidth size="large" color="inherit" variant="outlined">
-                <Iconify icon="eva:twitter-fill" color="#1C9CEA" width={22} height={22} />
-              </Button>
-            </Stack>
-
+            Already have an account? {''}
+            <button onClick={() => setsignUpPage(!signUpPage)} className='bg-blue-500 px-4 py-2  text-white rounded-lg ml-5'>Login</button>
+          </Typography>
+              :
+              <Typography variant="body2" sx={{ mb: 5 }}>
+                Don’t have an account? {''}
+                <button onClick={() => setsignUpPage(!signUpPage)} className='bg-green-500 px-4 py-2  text-white rounded-lg ml-5'>Sign Up</button>
+              </Typography>
+            }
             <Divider sx={{ my: 3 }}>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 OR
               </Typography>
             </Divider>
-
-            <LoginForm />
+            {signUpPage ? <SignUp /> : <LoginForm />}
           </StyledContent>
         </Container>
       </StyledRoot>

@@ -31,7 +31,7 @@ export default function DashboardAppPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back
+          Hi, Welcome back <span className='font-bold text-2xl text-blue-400'>{JSON.parse(localStorage.getItem('user')).user_name}</span>
         </Typography>
 
         <Grid container spacing={3}>

@@ -20,3 +20,6 @@ E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0
 E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\refint\SupplyChainManagement.Entity.dll
 E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyChainManagement.Entity.pdb
 E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\ref\SupplyChainManagement.Entity.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\bin\Release\net6.0\SupplyChainManagement.Entity.runtimeconfig.json
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyChainManagement.Entity.csproj.AssemblyReference.cache
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.Entity\obj\Release\net6.0\SupplyChainManagement.Entity.genruntimeconfig.cache
