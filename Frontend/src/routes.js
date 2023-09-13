@@ -11,6 +11,7 @@ import InventoryPage from './pages/InventoryPage';
 
 import DashboardAppPage from './pages/DashboardAppPage';
 import SignUp from './sections/auth/signup/SignUp';
+import OrdersPage from './pages/OrdersPage';
 
 // ----------------------------------------------------------------------
 
@@ -27,7 +28,8 @@ export default function Router() {
         { path: 'app', element: <DashboardAppPage /> },
         { path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },
-        { path: 'inventory', element: <InventoryPage/>}, 
+        { path: 'inventory', element: <InventoryPage /> },
+        {path: 'orders', element: <OrdersPage/>}
       ],
     },
     {
