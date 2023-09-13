@@ -11,11 +11,9 @@ namespace SupplyChainManagement.Entity.Models
 
         [ForeignKey("Order")]
         public int order_id { get; set; }
-        public Order Order { get; set; }
 
         [ForeignKey("Product")]
         public int product_id { get; set;}
-        public Product Product { get; set; }
         public int source_location_id { get; set; }
         public int destination_location_id { get; set; }
         public DateTime shipment_date { get; set; }
