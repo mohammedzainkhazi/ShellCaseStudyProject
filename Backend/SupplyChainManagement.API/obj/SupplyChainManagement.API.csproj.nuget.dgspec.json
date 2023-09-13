@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj": {}
+    "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj": {}
   },
   "projects": {
-    "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj": {
+    "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj",
+        "projectUniqueName": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj",
         "projectName": "SupplyChainManagement.API",
-        "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj",
-        "packagesPath": "C:\\Users\\rootzain\\.nuget\\packages\\",
-        "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\obj\\",
+        "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj",
+        "packagesPath": "C:\\Users\\adlak\\.nuget\\packages\\",
+        "outputPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rootzain\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adlak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj": {
-                "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj"
+              "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj": {
+                "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj"
               },
-              "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
-                "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"
+              "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
+                "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"
               }
             }
           }
@@ -47,9 +47,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -59,7 +63,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -93,21 +97,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj": {
+    "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj",
+        "projectUniqueName": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj",
         "projectName": "SupplyChainManagement.BL",
-        "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj",
-        "packagesPath": "C:\\Users\\rootzain\\.nuget\\packages\\",
-        "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\obj\\",
+        "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj",
+        "packagesPath": "C:\\Users\\adlak\\.nuget\\packages\\",
+        "outputPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rootzain\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adlak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -121,11 +125,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj": {
-                "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj"
+              "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj": {
+                "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj"
               },
-              "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
-                "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"
+              "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
+                "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"
               }
             }
           }
@@ -148,13 +152,17 @@
               "target": "Package",
               "version": "[2.1.7, )"
             },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
               "version": "[2.2.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -164,86 +172,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.10, )"
-            },
-            "Npgsql": {
-              "target": "Package",
-              "version": "[7.0.4, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj",
-        "projectName": "SupplyChainManagement.Data",
-        "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj",
-        "packagesPath": "C:\\Users\\rootzain\\.nuget\\packages\\",
-        "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\rootzain\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
-                "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.10, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.10, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -270,21 +199,108 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
+    "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj",
-        "projectName": "SupplyChainManagement.Entity",
-        "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj",
-        "packagesPath": "C:\\Users\\rootzain\\.nuget\\packages\\",
-        "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\obj\\",
+        "projectUniqueName": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj",
+        "projectName": "SupplyChainManagement.Data",
+        "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj",
+        "packagesPath": "C:\\Users\\adlak\\.nuget\\packages\\",
+        "outputPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rootzain\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adlak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
+                "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj",
+        "projectName": "SupplyChainManagement.Entity",
+        "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj",
+        "packagesPath": "C:\\Users\\adlak\\.nuget\\packages\\",
+        "outputPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\adlak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -310,9 +326,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -322,9 +342,13 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.4, )"
             }
@@ -345,7 +369,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

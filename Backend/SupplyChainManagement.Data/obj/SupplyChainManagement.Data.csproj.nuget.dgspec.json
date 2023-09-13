@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj": {}
+    "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj": {}
   },
   "projects": {
-    "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj": {
+    "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj",
+        "projectUniqueName": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj",
         "projectName": "SupplyChainManagement.Data",
-        "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj",
-        "packagesPath": "C:\\Users\\rootzain\\.nuget\\packages\\",
-        "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\obj\\",
+        "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\SupplyChainManagement.Data.csproj",
+        "packagesPath": "C:\\Users\\adlak\\.nuget\\packages\\",
+        "outputPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rootzain\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adlak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
-                "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"
+              "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
+                "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"
               }
             }
           }
@@ -44,9 +44,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -56,7 +60,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -83,21 +87,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
+    "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj",
+        "projectUniqueName": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj",
         "projectName": "SupplyChainManagement.Entity",
-        "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj",
-        "packagesPath": "C:\\Users\\rootzain\\.nuget\\packages\\",
-        "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\obj\\",
+        "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj",
+        "packagesPath": "C:\\Users\\adlak\\.nuget\\packages\\",
+        "outputPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rootzain\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adlak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -123,9 +127,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -135,9 +143,13 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.4, )"
             }
@@ -158,7 +170,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
