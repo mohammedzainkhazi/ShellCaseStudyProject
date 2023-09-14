@@ -29,7 +29,6 @@ export default function DashboardAppPage() {
   const [topProducts, setTopProducts] = useState([]);
   const [pendingTasks, setPendingTasks] = useState([]);
 
-
   const getAllOrders = async () => {
     const res = await axios.get('http://localhost:5204/getAllOrders', {
      headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
@@ -133,7 +132,8 @@ export default function DashboardAppPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back <span className='font-bold text-2xl text-blue-400'>{JSON.parse(localStorage.getItem('user')).user_name}</span>
+          Hi, Welcome back{' '}
+          <span className="font-bold text-2xl text-blue-400">{JSON.parse(localStorage.getItem('user')).user_name}</span>
         </Typography>
 
         <Grid container spacing={3}>
@@ -142,15 +142,30 @@ export default function DashboardAppPage() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Pending Orders" total={pendingOrders} color="info" imageSrc={'/assets/icons/ic_pending_order.svg'} />
+            <AppWidgetSummary
+              title="Pending Orders"
+              total={pendingOrders}
+              color="info"
+              imageSrc={'/assets/icons/ic_pending_order.svg'}
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Orders Delivered" total={deliveredOrders} color="warning" imageSrc={'/assets/icons/ic_deliver.svg'} />
+            <AppWidgetSummary
+              title="Orders Delivered"
+              total={deliveredOrders}
+              color="warning"
+              imageSrc={'/assets/icons/ic_deliver.svg'}
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Products" total={totalProducts} color="error" imageSrc={'/assets/icons/ic_customer.svg'} />
+            <AppWidgetSummary
+              title="Total Products"
+              total={totalProducts}
+              color="error"
+              imageSrc={'/assets/icons/ic_customer.svg'}
+            />
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
