@@ -12,8 +12,6 @@ import SignUp from '../sections/auth/signup/SignUp';
 // hooks
 import useResponsive from '../hooks/useResponsive';
 // components
-import Logo from '../components/logo';
-// import logoImage from '/assets//shell-gas-logo.png'
 // sections
 import { LoginForm } from '../sections/auth/login';
 // ----------------------------------------------------------------------
