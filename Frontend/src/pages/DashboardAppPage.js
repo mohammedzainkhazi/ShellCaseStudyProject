@@ -27,65 +27,52 @@ export default function DashboardAppPage() {
   const [deliveredOrders, setDeliveredOrders] = useState(0);
   const [totalProducts, setTotalProducts] = useState(0);
 
-
   const getAllOrders = async () => {
-    const res = await axios.get('http://localhost:5204/getAllOrders', {
-      withCredentials: false
-    },
-    ).catch(e => setTotalOrders(-1)).then(
-      res => (
-        res.data.length ? setTotalOrders(res.data.length) : setTotalOrders('No Orders Yet')
-      )
-    )
+    const res = await axios
+      .get('http://localhost:5204/getAllOrders', {
+        withCredentials: false,
+      })
+      .catch((e) => setTotalOrders(-1))
+      .then((res) => (res.data.length ? setTotalOrders(res.data.length) : setTotalOrders('No Orders Yet')));
   };
 
   const getPendingOrders = async () => {
-    const res = await axios.get('http://localhost:5204/getAllOrders', {
-      withCredentials: false
-    },
-    ).catch(e => setPendingOrders(-1)).then(
-      res => (res.data.filter(row => (
-        row.status === 'Placed'
-      )
-      ))
-    ).then(data=>data.length ? setPendingOrders(data.length) : setPendingOrders('No Orders Yet')
-    )
+    const res = await axios
+      .get('http://localhost:5204/getAllOrders', {
+        withCredentials: false,
+      })
+      .catch((e) => setPendingOrders(-1))
+      .then((res) => res.data.filter((row) => row.status === 'Placed'))
+      .then((data) => (data.length ? setPendingOrders(data.length) : setPendingOrders('No Orders Yet')));
   };
 
   const getDeliveredOrders = async () => {
-    const res = await axios.get('http://localhost:5204/getAllOrders', {
-      withCredentials: false
-    },
-    ).catch(e => setDeliveredOrders(-1)).then(
-      res => (res.data.filter(row => (
-        row.status === 'Delivered'
-      )
-      ))
-    ).then(data=>data.length ? setDeliveredOrders(data.length) : setDeliveredOrders('No Orders Yet')
-    )
+    const res = await axios
+      .get('http://localhost:5204/getAllOrders', {
+        withCredentials: false,
+      })
+      .catch((e) => setDeliveredOrders(-1))
+      .then((res) => res.data.filter((row) => row.status === 'Delivered'))
+      .then((data) => (data.length ? setDeliveredOrders(data.length) : setDeliveredOrders('No Orders Yet')));
   };
 
   const getAllProducts = async () => {
-    const res = await axios.get('http://localhost:5204/getAllProducts', {
-      withCredentials: false
-    },
-    ).catch(e => setTotalProducts(-1)).then(
-      res => (
-        res.data.length ? setTotalProducts(res.data.length) : setTotalProducts('No Products Yet')
-      )
-    )
+    const res = await axios
+      .get('http://localhost:5204/getAllProducts', {
+        withCredentials: false,
+      })
+      .catch((e) => setTotalProducts(-1))
+      .then((res) => (res.data.length ? setTotalProducts(res.data.length) : setTotalProducts('No Products Yet')));
   };
 
   useEffect(() => {
-   setInterval(() => {
-    getAllOrders();
-    getPendingOrders();
-    getDeliveredOrders();
-    getAllProducts();
-   }, 10000);
-  }, [])
-
-
+    setInterval(() => {
+      getAllOrders();
+      getPendingOrders();
+      getDeliveredOrders();
+      getAllProducts();
+    }, 5000);
+  }, []);
 
   return (
     <>
@@ -95,7 +82,8 @@ export default function DashboardAppPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back <span className='font-bold text-2xl text-blue-400'>{JSON.parse(localStorage.getItem('user')).user_name}</span>
+          Hi, Welcome back{' '}
+          <span className="font-bold text-2xl text-blue-400">{JSON.parse(localStorage.getItem('user')).user_name}</span>
         </Typography>
 
         <Grid container spacing={3}>
@@ -104,15 +92,30 @@ export default function DashboardAppPage() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Pending Orders" total={pendingOrders} color="info" imageSrc={'/assets/icons/ic_pending_order.svg'} />
+            <AppWidgetSummary
+              title="Pending Orders"
+              total={pendingOrders}
+              color="info"
+              imageSrc={'/assets/icons/ic_pending_order.svg'}
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Orders Delivered" total={deliveredOrders} color="warning" imageSrc={'/assets/icons/ic_deliver.svg'} />
+            <AppWidgetSummary
+              title="Orders Delivered"
+              total={deliveredOrders}
+              color="warning"
+              imageSrc={'/assets/icons/ic_deliver.svg'}
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Products" total={totalProducts} color="error" imageSrc={'/assets/icons/ic_customer.svg'} />
+            <AppWidgetSummary
+              title="Total Products"
+              total={totalProducts}
+              color="error"
+              imageSrc={'/assets/icons/ic_customer.svg'}
+            />
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
@@ -126,12 +129,12 @@ export default function DashboardAppPage() {
                 { label: 'India', value: 4443 },
                 { label: 'India', value: 4443 },
               ]}
-            // chartColors={[
-            //   theme.palette.primary.main,
-            //   theme.palette.info.main,
-            //   theme.palette.warning.main,
-            //   theme.palette.error.main,
-            // ]}
+              // chartColors={[
+              //   theme.palette.primary.main,
+              //   theme.palette.info.main,
+              //   theme.palette.warning.main,
+              //   theme.palette.error.main,
+              // ]}
             />
           </Grid>
 
