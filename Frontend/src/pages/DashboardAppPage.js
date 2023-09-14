@@ -36,19 +36,19 @@ export default function DashboardAppPage() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Orders" total={714000} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary title="Total Orders" total={714000} imageSrc={'/assets/icons/ic_order.svg'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Pending Order" total={1352831} color="info" icon={'ant-design:apple-filled'} />
+            <AppWidgetSummary title="Pending Order" total={1352831} color="info" imageSrc={'/assets/icons/ic_pending_order.svg'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Orders Delivered" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
+            <AppWidgetSummary title="Orders Delivered" total={1723315} color="warning" imageSrc={'/assets/icons/ic_deliver.svg'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Customers" total={234} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary title="Total Customers" total={234} color="error" imageSrc={'/assets/icons/ic_customer.svg'} />
           </Grid>
           
           <Grid item xs={12} md={6} lg={4}>

@@ -1,0 +1,8 @@
+.css-1tfylnl-MuiToolbar-root {
+    min-height: 92px;
+    padding: 0px 40px;
+    background-color: #ff0c008f;
+    background-image: radial-gradient(circle, transparent 10%, #ffff0042 10%), radial-gradient(circle, transparent 10%, #ffff0042 10%), radial-gradient(circle, transparent 10%, #ffff0042 10%);
+    background-size: 80px 80px;
+    background-position: 0 0, 40px 40px, 20px 20px;
+}

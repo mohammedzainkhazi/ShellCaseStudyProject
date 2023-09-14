@@ -15,6 +15,8 @@ import NavSection from '../../../components/nav-section';
 //
 import navConfig from './config';
 
+import './index.css'
+
 // ----------------------------------------------------------------------
 
 const NAV_WIDTH = 280;
@@ -57,7 +59,7 @@ export default function Nav({ openNav, onCloseNav }) {
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
         {/* <Logo /> */}
-        <img src='https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/Shell_logo.svg/1200px-Shell_logo.svg.png' alt="logo" height={100} width={100}/>
+        <img src='/assets//shell-gas-logo.png' alt="logo" height={100} width={100}/>
       </Box>
 
       <Box sx={{ mb: 5, mx: 2.5 }}>

@@ -75,5 +75,5 @@ export default function Router() {
     },
   ])
 
-  return user ? routes : authRoutes;
+  return routes;
 }
