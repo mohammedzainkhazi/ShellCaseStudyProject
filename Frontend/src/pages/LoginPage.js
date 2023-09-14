@@ -12,8 +12,7 @@ import SignUp from '../sections/auth/signup/SignUp';
 
 // hooks
 import useResponsive from '../hooks/useResponsive';
-// components
-import Logo from '../components/logo';
+
 // sections
 import { LoginForm } from '../sections/auth/login';
 // ----------------------------------------------------------------------
@@ -54,17 +53,17 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Login | Minimal UI </title>
+        <title> Login </title>
       </Helmet>
 
       <StyledRoot>
-        <Logo
+        {/* <Logo
           sx={{
             position: 'fixed',
             top: { xs: 16, sm: 24, md: 40 },
             left: { xs: 16, sm: 24, md: 40 },
-          }}
-        />
+          }} */}
+        
 
         {mdUp && (
           <StyledSection>

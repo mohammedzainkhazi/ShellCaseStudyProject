@@ -14,7 +14,6 @@ import {
   AppWebsiteVisits,
   AppTrafficBySite,
   AppWidgetSummary,
-  AppCurrentSubject,
   AppConversionRates,
 } from '../sections/@dashboard/app';
 
@@ -26,7 +25,7 @@ export default function DashboardAppPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard | Minimal UI </title>
+        <title> Dashboard </title>
       </Helmet>
 
       <Container maxWidth="xl">
