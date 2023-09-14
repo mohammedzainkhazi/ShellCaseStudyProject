@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // @mui
 import { styled } from '@mui/material/styles';
+import './index.css';
 import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 // utils
 import { bgBlur } from '../../../utils/cssStyles';
@@ -29,6 +30,7 @@ const StyledRoot = styled(AppBar)(({ theme }) => ({
     width: `calc(100% - ${NAV_WIDTH + 1}px)`,
   },
 }));
+
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   minHeight: HEADER_MOBILE,

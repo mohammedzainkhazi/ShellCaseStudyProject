@@ -14,8 +14,10 @@ import SignUp from '../sections/auth/signup/SignUp';
 import useResponsive from '../hooks/useResponsive';
 // components
 import Logo from '../components/logo';
+// import logoImage from '/assets//shell-gas-logo.png'
 // sections
 import { LoginForm } from '../sections/auth/login';
+
 // ----------------------------------------------------------------------
 
 const StyledRoot = styled('div')(({ theme }) => ({
@@ -42,7 +44,10 @@ const StyledContent = styled('div')(({ theme }) => ({
   justifyContent: 'center',
   flexDirection: 'column',
   padding: theme.spacing(12, 0),
+ // background: 'linear-gradient(to bottom, #FFFFE0, #FFFFFF)', // Define your gradient here
+
 }));
+
 
 // ----------------------------------------------------------------------
 
@@ -51,6 +56,16 @@ export default function LoginPage() {
 
   const [signUpPage, setsignUpPage] = useState(false);
 
+
+  const welcomeText = signUpPage
+? "Hi, New User. Glad to Have You with Us"
+: "Hi, Welcome Back";
+
+const pageImage = signUpPage
+? "/assets/illustrations/illustration_sign.png"
+: "/assets/illustrations/illustration_login.png";
+
+
   return (
     <>
       <Helmet>
@@ -58,20 +73,32 @@ export default function LoginPage() {
       </Helmet>
 
       <StyledRoot>
-        <Logo
+      <img
+          src="/assets/shell-gas-logo.png" // Provide the new image source
+          alt="Logo" // Provide alternative text
+          style={{
+            position: 'fixed',
+            top: { xs: 16, sm: 24, md: 40 },
+            left: { xs: 16, sm: 24, md: 40 },
+            width: 60, // Set the width
+            height: 60, // Set the height
+            margin: 25,
+          }}
+        />
+        {/* <Logo
           sx={{
             position: 'fixed',
             top: { xs: 16, sm: 24, md: 40 },
             left: { xs: 16, sm: 24, md: 40 },
           }}
-        />
+        /> */}
 
         {mdUp && (
           <StyledSection>
-            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Hi, Welcome Back
+            <Typography variant="h4" sx={{ px: 5, mt: 10, mb: 5 }}>
+              {welcomeText}
             </Typography>
-            <img src="/assets/illustrations/illustration_login.png" alt="login" />
+            <img src={pageImage} alt="login" />
           </StyledSection>
         )}
 
@@ -84,12 +111,12 @@ export default function LoginPage() {
             {signUpPage ?
             <Typography variant="body2" sx={{ mb: 5 }}>
             Already have an account? {''}
-            <button onClick={() => setsignUpPage(!signUpPage)} className='bg-blue-500 px-4 py-2  text-white rounded-lg ml-5'>Login</button>
+            <button onClick={() => setsignUpPage(!signUpPage)} className='bg-blue-500 hover:bg-yellow-400 px-4 py-2  text-white rounded-lg ml-5'>Login</button>
           </Typography>
               :
               <Typography variant="body2" sx={{ mb: 5 }}>
                 Don’t have an account? {''}
-                <button onClick={() => setsignUpPage(!signUpPage)} className='bg-green-500 px-4 py-2  text-white rounded-lg ml-5'>Sign Up</button>
+                <button onClick={() => setsignUpPage(!signUpPage)} className='bg-green-500 hover:bg-yellow-400 px-4 py-2 text-white rounded-lg ml-5'>Sign Up</button>
               </Typography>
             }
             <Divider sx={{ my: 3 }}>
