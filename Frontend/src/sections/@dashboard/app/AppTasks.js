@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import axios from 'axios';
+
 // form
 import { useForm, Controller } from 'react-hook-form';
 // @mui
@@ -46,10 +48,10 @@ export default function AppTasks({ title, subheader, list, ...other }) {
             <>
               {list.map((task) => (
                 <TaskItem
-                  key={task.id}
+                  key={task.order_id}
                   task={task}
-                  checked={field.value.includes(task.id)}
-                  onChange={() => field.onChange(onSelected(task.id))}
+                  checked={field.value.includes(task.product_name)}
+                  onChange={() => field.onChange(onSelected(task.product_name))}
                 />
               ))}
             </>
@@ -66,12 +68,12 @@ TaskItem.propTypes = {
   checked: PropTypes.bool,
   onChange: PropTypes.func,
   task: PropTypes.shape({
-    id: PropTypes.string,
-    label: PropTypes.string,
+    order_id: PropTypes.string,
+    product_name: PropTypes.string,
   }),
 };
 
-function TaskItem({ task, checked, onChange }) {
+function TaskItem({ task, checked, onChange,getPendingTasks }) {
   const [open, setOpen] = useState(null);
 
   const handleOpenMenu = (event) => {
@@ -82,24 +84,31 @@ function TaskItem({ task, checked, onChange }) {
     setOpen(null);
   };
 
+  const handleOrderDelete = async (id) => {
+    const res = await axios.put(`http://localhost:5204/updateOrder`,
+    {
+      "order_id": id,
+      "product_name": task.product_name,
+      "quantity_ordered": task.quantity_ordered,
+      "order_date": task.order_date,
+      "status": "Delivered",
+      "inventory_id": task.inventory_id
+    },
+    {
+      headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => console.log(e));
+
+    if (res.data !== null) {
+      return (res.data);
+    }
+    return [];
+  };
+
   const handleMarkComplete = () => {
     handleCloseMenu();
-    console.log('MARK COMPLETE', task.id);
-  };
-
-  const handleShare = () => {
-    handleCloseMenu();
-    console.log('SHARE', task.id);
-  };
-
-  const handleEdit = () => {
-    handleCloseMenu();
-    console.log('EDIT', task.id);
-  };
-
-  const handleDelete = () => {
-    handleCloseMenu();
-    console.log('DELETE', task.id);
+    handleOrderDelete(task.order_id);
+    getPendingTasks();
   };
 
   return (
@@ -114,10 +123,21 @@ function TaskItem({ task, checked, onChange }) {
         }),
       }}
     >
+       <FormControlLabel
+        control={<div/>}
+        label={`Id : ${task.order_id}`}
+        sx={{ flexGrow: 1, m: 0, color:'blue' }}
+      />
+
       <FormControlLabel
-        control={<Checkbox checked={checked} onChange={onChange} />}
-        label={task.label}
+        control={<div/>}
+        label={task.product_name}
         sx={{ flexGrow: 1, m: 0 }}
+      />
+      <FormControlLabel
+        control={<div/>}
+        label={`Quantity : ${task.quantity_ordered}`}
+        sx={{ flexGrow: 1, m: 0, color:'orange' }}
       />
 
       <IconButton size="large" color="inherit" sx={{ opacity: 0.48 }} onClick={handleOpenMenu}>
@@ -142,25 +162,8 @@ function TaskItem({ task, checked, onChange }) {
         }}
       >
         <MenuItem onClick={handleMarkComplete}>
-          <Iconify icon={'eva:checkmark-circle-2-fill'} sx={{ mr: 2 }} />
-          Mark Complete
-        </MenuItem>
-
-        <MenuItem onClick={handleEdit}>
-          <Iconify icon={'eva:edit-fill'} sx={{ mr: 2 }} />
-          Edit
-        </MenuItem>
-
-        <MenuItem onClick={handleShare}>
-          <Iconify icon={'eva:share-fill'} sx={{ mr: 2 }} />
-          Share
-        </MenuItem>
-
-        <Divider sx={{ borderStyle: 'dashed' }} />
-
-        <MenuItem onClick={handleDelete} sx={{ color: 'error.main' }}>
-          <Iconify icon={'eva:trash-2-outline'} sx={{ mr: 2 }} />
-          Delete
+          <Iconify icon={'eva:checkmark-circle-2-fill'} sx={{ mr: 2 ,color:'green '}} />
+          Mark as Delivered
         </MenuItem>
       </Popover>
     </Stack>

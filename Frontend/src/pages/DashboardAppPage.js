@@ -26,6 +26,8 @@ export default function DashboardAppPage() {
   const [pendingOrders, setPendingOrders] = useState(0);
   const [deliveredOrders, setDeliveredOrders] = useState(0);
   const [totalProducts, setTotalProducts] = useState(0);
+  const [topProducts, setTopProducts] = useState([]);
+  const [pendingTasks, setPendingTasks] = useState([]);
 
 
   const getAllOrders = async () => {
@@ -80,17 +82,44 @@ export default function DashboardAppPage() {
       )
     )
   };
+  const getTopProducts = async () => {
+    const res = await axios.get('http://localhost:5204/getTopProducts', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => setTopProducts([])).then(
+      res => (
+        res.data.length ? setTopProducts(res.data) : setTopProducts([])
+      )
+    )
+  };
+
+  const getPendingTasks = async () => {
+    const res = await axios.get('http://localhost:5204/getAllOrders', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => setPendingOrders(-1)).then(
+      res => (res.data.filter(row => (
+        row.status === 'Placed'
+      )
+      ))
+    ).then(data=>data.length>=1 ? setPendingTasks(data) : setPendingTasks([])
+    )
+  };
 
   useEffect(() => {
     getAllOrders();
     getPendingOrders();
     getDeliveredOrders();
     getAllProducts();
+    getTopProducts();
+    getPendingTasks();
    setInterval(() => {
     getAllOrders();
     getPendingOrders();
     getDeliveredOrders();
     getAllProducts();
+    getTopProducts();
+    getPendingTasks();
    }, 10000);
   }, [])
 
@@ -127,14 +156,17 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
               title="Top Selling Products"
-              chartData={[
-                { label: 'America', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
-                { label: 'India', value: 4443 },
-                { label: 'India', value: 4443 },
-              ]}
+              chartData={
+                // [
+                // { label: 'America', value: 4344 },
+                // { label: 'Asia', value: 5435 },
+                // { label: 'Europe', value: 1443 },
+                // { label: 'Africa', value: 4443 },
+                // { label: 'India', value: 4443 },
+                // { label: 'India', value: 4443 },
+              // ]
+              topProducts
+            }
             // chartColors={[
             //   theme.palette.primary.main,
             //   theme.palette.info.main,
@@ -183,13 +215,10 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={8}>
             <AppTasks
               title="Pending Orders"
-              list={[
-                { id: '1', label: 'Create FireStone Logo' },
-                { id: '2', label: 'Add SCSS and JS files if required' },
-                { id: '3', label: 'Stakeholder Meeting' },
-                { id: '4', label: 'Scoping & Estimations' },
-                { id: '5', label: 'Sprint Showcase' },
-              ]}
+              list={
+                pendingTasks
+              }
+              getPendingTasks={getPendingTasks}
             />
           </Grid>
         </Grid>
