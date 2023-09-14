@@ -101,9 +101,11 @@ export default function AppWidgetSummary({ title, total, color = 'primary', sx, 
         color: (theme) => theme.palette[color].darker,
         bgcolor: (theme) => theme.palette[color].lighter,
         ...sx,
-      }}
+      } }
+      className="transition-transform hover:scale-105 hover:shadow-lg"
       {...other}
     >
+      
       <StyledIcon
         sx={{
           color: (theme) => theme.palette[color].dark,

@@ -1,7 +1,6 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
-import SimpleLayout from './layouts/simple';
 //
 import UserPage from './pages/UserPage';
 import LoginPage from './pages/LoginPage';
@@ -11,6 +10,7 @@ import InventoryPage from './pages/InventoryPage';
 
 import DashboardAppPage from './pages/DashboardAppPage';
 import SignUp from './sections/auth/signup/SignUp';
+import OrdersPage from './pages/OrdersPage';
 
 // ----------------------------------------------------------------------
 
@@ -27,7 +27,8 @@ export default function Router() {
         { path: 'app', element: <DashboardAppPage /> },
         { path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },
-        { path: 'inventory', element: <InventoryPage/>}, 
+        { path: 'inventory', element: <InventoryPage /> },
+        {path: 'orders', element: <OrdersPage/>}
       ],
     },
     {
@@ -37,14 +38,6 @@ export default function Router() {
     {
       path: 'signup',
       element: <SignUp/>,
-    },
-    {
-      element: <SimpleLayout />,
-      children: [
-        { element: <Navigate to="/dashboard/app" />, index: true },
-        { path: '404', element: <Page404 /> },
-        { path: '*', element: <Navigate to="/404" /> },
-      ],
     },
     {
       path: '*',

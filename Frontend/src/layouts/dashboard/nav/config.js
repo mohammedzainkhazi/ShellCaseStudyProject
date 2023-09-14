@@ -32,6 +32,11 @@ const navConfig = [
     icon: icon('ic_inventory'),
   },
   {
+    title: 'orders',
+    path: '/dashboard/orders',
+    icon: icon('ic_orders'),
+  },
+  {
     title: 'login',
     path: '/login',
     icon: icon('ic_lock'),

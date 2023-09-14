@@ -2,8 +2,6 @@ import merge from 'lodash/merge';
 // @mui
 import { useTheme, alpha } from '@mui/material/styles';
 
-// ----------------------------------------------------------------------
-
 export default function useChart(options) {
   const theme = useTheme();
 
@@ -152,36 +150,6 @@ export default function useChart(options) {
         },
       },
 
-      // Radialbar
-      radialBar: {
-        track: {
-          strokeWidth: '100%',
-          background: alpha(theme.palette.grey[500], 0.16),
-        },
-        dataLabels: {
-          value: LABEL_VALUE,
-          total: LABEL_TOTAL,
-        },
-      },
-
-      // Radar
-      radar: {
-        polygons: {
-          fill: { colors: ['transparent'] },
-          strokeColors: theme.palette.divider,
-          connectorColors: theme.palette.divider,
-        },
-      },
-
-      // polarArea
-      polarArea: {
-        rings: {
-          strokeColor: theme.palette.divider,
-        },
-        spokes: {
-          connectorColors: theme.palette.divider,
-        },
-      },
     },
 
     // Responsive
