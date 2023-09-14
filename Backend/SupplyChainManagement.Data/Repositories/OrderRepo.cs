@@ -16,9 +16,9 @@ namespace SupplyChainManagement.Data.Repositories
         {
             _db = dbcontext;
         }
-        public string AddOrder(Order order)
+        public string AddOrder(Orders order)
         {
-            _db.order.Add(order);
+            _db.orders.Add(order);
             _db.SaveChanges();
             return "Added New Order";
         }
@@ -30,25 +30,25 @@ namespace SupplyChainManagement.Data.Repositories
 
         public string DeleteOrderById(int id)
         {
-            var order = _db.order.Find(id);
-            _db.order.Remove(order);
+            var order = _db.orders.Find(id);
+            _db.orders.Remove(order);
             _db.SaveChanges();
             return "Deleted order : " + id;
         }
 
-        public List<Order> GetAllOrders()
+        public List<Orders> GetAllOrders()
         {
-            List<Order> orders = _db.order.ToList();
+            List<Orders> orders = _db.orders.ToList();
             return orders;
         }
 
-        public Order GetOrderById(int id)
+        public Orders GetOrderById(int id)
         {
-            Order order = _db.order.Find(id);
+            Orders order = _db.orders.Find(id);
             return order;
         }
 
-        public string UpdateOrder(Order order)
+        public string UpdateOrder(Orders order)
         {
             _db.Entry(order).State = EntityState.Modified;
             _db.SaveChanges();

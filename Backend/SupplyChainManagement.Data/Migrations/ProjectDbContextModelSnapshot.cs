@@ -64,7 +64,7 @@ namespace SupplyChainManagement.Data.Migrations
                     b.ToTable("location");
                 });
 
-            modelBuilder.Entity("SupplyChainManagement.Entity.Models.Order", b =>
+            modelBuilder.Entity("SupplyChainManagement.Entity.Models.Orders", b =>
                 {
                     b.Property<int>("order_id")
                         .ValueGeneratedOnAdd()
@@ -90,7 +90,7 @@ namespace SupplyChainManagement.Data.Migrations
 
                     b.HasKey("order_id");
 
-                    b.ToTable("order");
+                    b.ToTable("orders");
                 });
 
             modelBuilder.Entity("SupplyChainManagement.Entity.Models.Product", b =>
