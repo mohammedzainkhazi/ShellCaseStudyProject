@@ -2,9 +2,17 @@
 using Microsoft.AspNetCore.Mvc;
 using SupplyChainManagement.Services;
 using SupplyChainManagement.Entity.Models;
+using System.Data;
+using NuGet.Protocol;
 
 namespace SupplyChainManagement.API.Controllers
 {
+    public class ProductData
+    {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public int TotalQuantitySold { get; set; }
+    }
     [Route("api/[controller]")]
     [ApiController]
     public class OrderController : ControllerBase
@@ -15,17 +23,17 @@ namespace SupplyChainManagement.API.Controllers
             _OrderService = service;
         }
         [HttpGet("/getAllOrders")]
-        public IEnumerable<Order> GetAllOrders()
+        public IEnumerable<Orders> GetAllOrders()
         {
             return _OrderService.GetAllOrders();
         }
         [HttpGet("getOrder/{id}")]
-        public Order GetOrderById(int id)
+        public Orders GetOrderById(int id)
         {
             return _OrderService.GetOrderById(id);
         }
         [HttpPost("/addOrder")]
-        public IActionResult AddOrder([FromBody] Order Order)
+        public IActionResult AddOrder([FromBody] Orders Order)
         {
             return Ok(_OrderService.AddOrder(Order));
         }
@@ -35,7 +43,7 @@ namespace SupplyChainManagement.API.Controllers
             return Ok(_OrderService.DeleteOrderById(id));
         }
         [HttpPut("/updateOrder")]
-        public IActionResult UpdateOrder([FromBody] Order Order)
+        public IActionResult UpdateOrder([FromBody] Orders Order)
         {
             return Ok(_OrderService.UpdateOrder(Order));
         }
@@ -43,6 +51,11 @@ namespace SupplyChainManagement.API.Controllers
         public IActionResult DeleteAllOrders()
         {
             return Ok(_OrderService.DeleteAllOrders());
+        }
+        [HttpGet("/getTopProducts")]
+
+        public IActionResult GetTopProducts() {
+            return Ok(_OrderService.TopOrders().ToJson());
         }
     }
 }

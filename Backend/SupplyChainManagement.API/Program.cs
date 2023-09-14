@@ -2,10 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using SupplyChainManagement;
 using SupplyChainManagement.Data.Repositories;
 using SupplyChainManagement.Services;
+using Serilog;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// Serilog Configuration 
+var logger = new LoggerConfiguration().WriteTo.File("Logs.txt", rollingInterval: RollingInterval.Hour).CreateLogger();
+builder.Logging.AddSerilog(logger);
 // Add services to the container.
 
 builder.Services.AddControllers();

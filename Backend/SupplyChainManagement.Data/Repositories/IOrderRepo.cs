@@ -9,11 +9,11 @@ namespace SupplyChainManagement.Repository
 {
     public interface IOrderRepo
     {
-        string AddOrder(Order Order);
-        string UpdateOrder(Order Order);
+        string AddOrder(Orders Order);
+        string UpdateOrder(Orders Order);
         string DeleteOrderById(int id);
         string DeleteAllOrders();
-        Order GetOrderById(int id);
-        List<Order> GetAllOrders();
+        Orders GetOrderById(int id);
+        List<Orders> GetAllOrders();
     }
 }

@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-// React Hooks 
+// React Hooks
 import { useState } from 'react';
 
 // @mui
@@ -9,10 +9,11 @@ import { Container, Typography, Divider } from '@mui/material';
 
 import SignUp from '../sections/auth/signup/SignUp';
 
-
 // hooks
 import useResponsive from '../hooks/useResponsive';
-
+// components
+import Logo from '../components/logo';
+// import logoImage from '/assets//shell-gas-logo.png'
 // sections
 import { LoginForm } from '../sections/auth/login';
 // ----------------------------------------------------------------------
@@ -53,17 +54,29 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Login </title>
+        <title> Login | Minimal UI </title>
       </Helmet>
 
       <StyledRoot>
+        <img
+          src="/assets/shell-gas-logo.png" // Provide the new image source
+          alt="Logo" // Provide alternative text
+          style={{
+            position: 'fixed',
+            top: { xs: 16, sm: 24, md: 40 },
+            left: { xs: 16, sm: 24, md: 40 },
+            width: 60, // Set the width
+            height: 60, // Set the height
+            margin: 25,
+          }}
+        />
         {/* <Logo
           sx={{
             position: 'fixed',
             top: { xs: 16, sm: 24, md: 40 },
             left: { xs: 16, sm: 24, md: 40 },
-          }} */}
-        
+          }}
+        /> */}
 
         {mdUp && (
           <StyledSection>
@@ -80,17 +93,27 @@ export default function LoginPage() {
               Sign in to Minimal
             </Typography>
 
-            {signUpPage ?
-            <Typography variant="body2" sx={{ mb: 5 }}>
-            Already have an account? {''}
-            <button onClick={() => setsignUpPage(!signUpPage)} className='bg-blue-500 px-4 py-2  text-white rounded-lg ml-5'>Login</button>
-          </Typography>
-              :
+            {signUpPage ? (
+              <Typography variant="body2" sx={{ mb: 5 }}>
+                Already have an account? {''}
+                <button
+                  onClick={() => setsignUpPage(!signUpPage)}
+                  className="bg-blue-500 hover:bg-yellow-400 px-4 py-2  text-white rounded-lg ml-5"
+                >
+                  Login
+                </button>
+              </Typography>
+            ) : (
               <Typography variant="body2" sx={{ mb: 5 }}>
                 Don’t have an account? {''}
-                <button onClick={() => setsignUpPage(!signUpPage)} className='bg-green-500 px-4 py-2  text-white rounded-lg ml-5'>Sign Up</button>
+                <button
+                  onClick={() => setsignUpPage(!signUpPage)}
+                  className="bg-green-500 hover:bg-yellow-400 px-4 py-2 text-white rounded-lg ml-5"
+                >
+                  Sign Up
+                </button>
               </Typography>
-            }
+            )}
             <Divider sx={{ my: 3 }}>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 OR

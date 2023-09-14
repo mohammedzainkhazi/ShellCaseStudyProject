@@ -1,7 +1,6 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
-import SimpleLayout from './layouts/simple';
 //
 import UserPage from './pages/UserPage';
 import LoginPage from './pages/LoginPage';
@@ -41,14 +40,6 @@ export default function Router() {
       element: <SignUp/>,
     },
     {
-      element: <SimpleLayout />,
-      children: [
-        { element: <Navigate to="/dashboard/app" />, index: true },
-        { path: '404', element: <Page404 /> },
-        { path: '*', element: <Navigate to="/404" /> },
-      ],
-    },
-    {
       path: '*',
       element: <Navigate to="/404" replace />,
     },
@@ -77,5 +68,5 @@ export default function Router() {
     },
   ])
 
-  return user ? routes : authRoutes;
+  return routes;
 }

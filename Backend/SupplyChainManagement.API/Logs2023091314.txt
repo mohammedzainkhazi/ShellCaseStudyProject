@@ -1,0 +1,106 @@
+2023-09-13 14:19:33.612 +05:30 [INF] User profile is available. Using 'C:\Users\rootzain\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-13 14:19:35.307 +05:30 [INF] Now listening on: http://localhost:5204
+2023-09-13 14:19:35.326 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-13 14:19:35.331 +05:30 [INF] Hosting environment: Development
+2023-09-13 14:19:35.334 +05:30 [INF] Content root path: E:\ShellCaseStudyProject\Backend\SupplyChainManagement.API\
+2023-09-13 14:19:41.843 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/swagger/index.html - -
+2023-09-13 14:19:44.687 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/swagger/index.html - - - 200 - text/html;charset=utf-8 2861.3895ms
+2023-09-13 14:19:44.719 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/_vs/browserLink - -
+2023-09-13 14:19:44.929 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/_framework/aspnetcore-browser-refresh.js - -
+2023-09-13 14:19:44.936 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/_framework/aspnetcore-browser-refresh.js - - - 200 12382 application/javascript;+charset=utf-8 7.0491ms
+2023-09-13 14:19:44.969 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 250.2732ms
+2023-09-13 14:19:45.166 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/swagger/v1/swagger.json - -
+2023-09-13 14:19:45.768 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 602.6733ms
+2023-09-13 14:20:20.539 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/getAllUsers - -
+2023-09-13 14:20:20.575 +05:30 [INF] Executing endpoint 'SupplyChainManagement.API.Controllers.UserController.GetAllUsers (SupplyChainManagement.API)'
+2023-09-13 14:20:20.608 +05:30 [INF] Route matched with {action = "GetAllUsers", controller = "User"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[SupplyChainManagement.Entity.Models.User] GetAllUsers() on controller SupplyChainManagement.API.Controllers.UserController (SupplyChainManagement.API).
+2023-09-13 14:20:30.591 +05:30 [INF] Executed DbCommand (163ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u.user_id, u.user_email, u.user_name, u.user_pass
+FROM "user" AS u
+2023-09-13 14:20:30.919 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SupplyChainManagement.Entity.Models.User, SupplyChainManagement.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-13 14:20:30.951 +05:30 [INF] Executed action SupplyChainManagement.API.Controllers.UserController.GetAllUsers (SupplyChainManagement.API) in 10331.6234ms
+2023-09-13 14:20:30.952 +05:30 [INF] Executed endpoint 'SupplyChainManagement.API.Controllers.UserController.GetAllUsers (SupplyChainManagement.API)'
+2023-09-13 14:20:31.015 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/getAllUsers - - - 200 - application/json;+charset=utf-8 10476.1420ms
+2023-09-13 14:23:29.712 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/getAllProducts - -
+2023-09-13 14:23:29.798 +05:30 [INF] CORS policy execution successful.
+2023-09-13 14:23:29.814 +05:30 [INF] Executing endpoint 'SupplyChainManagement.API.Controllers.ProductController.GetAllProducts (SupplyChainManagement.API)'
+2023-09-13 14:23:29.825 +05:30 [INF] Route matched with {action = "GetAllProducts", controller = "Product"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[SupplyChainManagement.Entity.Models.Product] GetAllProducts() on controller SupplyChainManagement.API.Controllers.ProductController (SupplyChainManagement.API).
+2023-09-13 14:23:29.996 +05:30 [INF] Executed DbCommand (77ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT p.product_id, p.price_per_unit, p.product_description, p.product_name, p.unit_of_measure
+FROM product AS p
+2023-09-13 14:23:29.998 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SupplyChainManagement.Entity.Models.Product, SupplyChainManagement.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-13 14:23:30.011 +05:30 [INF] Executed action SupplyChainManagement.API.Controllers.ProductController.GetAllProducts (SupplyChainManagement.API) in 185.9321ms
+2023-09-13 14:23:30.011 +05:30 [INF] Executed endpoint 'SupplyChainManagement.API.Controllers.ProductController.GetAllProducts (SupplyChainManagement.API)'
+2023-09-13 14:23:30.011 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/getAllProducts - - - 200 - application/json;+charset=utf-8 299.4072ms
+2023-09-13 14:27:26.365 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/getAllProducts - -
+2023-09-13 14:27:26.391 +05:30 [INF] CORS policy execution successful.
+2023-09-13 14:27:26.391 +05:30 [INF] Executing endpoint 'SupplyChainManagement.API.Controllers.ProductController.GetAllProducts (SupplyChainManagement.API)'
+2023-09-13 14:27:26.392 +05:30 [INF] Route matched with {action = "GetAllProducts", controller = "Product"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[SupplyChainManagement.Entity.Models.Product] GetAllProducts() on controller SupplyChainManagement.API.Controllers.ProductController (SupplyChainManagement.API).
+2023-09-13 14:27:26.759 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT p.product_id, p.price_per_unit, p.product_description, p.product_name, p.unit_of_measure
+FROM product AS p
+2023-09-13 14:27:26.759 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SupplyChainManagement.Entity.Models.Product, SupplyChainManagement.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-13 14:27:26.760 +05:30 [INF] Executed action SupplyChainManagement.API.Controllers.ProductController.GetAllProducts (SupplyChainManagement.API) in 367.8593ms
+2023-09-13 14:27:26.760 +05:30 [INF] Executed endpoint 'SupplyChainManagement.API.Controllers.ProductController.GetAllProducts (SupplyChainManagement.API)'
+2023-09-13 14:27:26.760 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/getAllProducts - - - 200 - application/json;+charset=utf-8 394.4218ms
+2023-09-13 14:27:53.656 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/getAllInventories - -
+2023-09-13 14:27:53.662 +05:30 [INF] CORS policy execution successful.
+2023-09-13 14:27:53.663 +05:30 [INF] Executing endpoint 'SupplyChainManagement.API.Controllers.InventoryController.GetAllInventories (SupplyChainManagement.API)'
+2023-09-13 14:27:53.665 +05:30 [INF] Route matched with {action = "GetAllInventories", controller = "Inventory"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[SupplyChainManagement.Entity.Models.Inventory] GetAllInventories() on controller SupplyChainManagement.API.Controllers.InventoryController (SupplyChainManagement.API).
+2023-09-13 14:27:53.694 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT i.inventory_id, i.last_updated, i.location_id, i.product_id, i.quantity_available
+FROM inventory AS i
+2023-09-13 14:27:53.695 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SupplyChainManagement.Entity.Models.Inventory, SupplyChainManagement.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-13 14:27:53.714 +05:30 [INF] Executed action SupplyChainManagement.API.Controllers.InventoryController.GetAllInventories (SupplyChainManagement.API) in 48.8274ms
+2023-09-13 14:27:53.714 +05:30 [INF] Executed endpoint 'SupplyChainManagement.API.Controllers.InventoryController.GetAllInventories (SupplyChainManagement.API)'
+2023-09-13 14:27:53.714 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/getAllInventories - - - 200 - application/json;+charset=utf-8 59.8984ms
+2023-09-13 14:40:23.967 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/getAllInventories - -
+2023-09-13 14:40:23.973 +05:30 [INF] CORS policy execution successful.
+2023-09-13 14:40:23.973 +05:30 [INF] Executing endpoint 'SupplyChainManagement.API.Controllers.InventoryController.GetAllInventories (SupplyChainManagement.API)'
+2023-09-13 14:40:23.973 +05:30 [INF] Route matched with {action = "GetAllInventories", controller = "Inventory"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[SupplyChainManagement.Entity.Models.Inventory] GetAllInventories() on controller SupplyChainManagement.API.Controllers.InventoryController (SupplyChainManagement.API).
+2023-09-13 14:40:24.167 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT i.inventory_id, i.last_updated, i.location_id, i.product_id, i.quantity_available
+FROM inventory AS i
+2023-09-13 14:40:24.167 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SupplyChainManagement.Entity.Models.Inventory, SupplyChainManagement.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-13 14:40:24.168 +05:30 [INF] Executed action SupplyChainManagement.API.Controllers.InventoryController.GetAllInventories (SupplyChainManagement.API) in 194.0966ms
+2023-09-13 14:40:24.168 +05:30 [INF] Executed endpoint 'SupplyChainManagement.API.Controllers.InventoryController.GetAllInventories (SupplyChainManagement.API)'
+2023-09-13 14:40:24.168 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/getAllInventories - - - 200 - application/json;+charset=utf-8 202.6100ms
+2023-09-13 14:50:14.337 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/_framework/aspnetcore-browser-refresh.js - -
+2023-09-13 14:50:14.339 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/_framework/aspnetcore-browser-refresh.js - - - 200 12382 application/javascript;+charset=utf-8 2.4040ms
+2023-09-13 14:50:14.362 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/_vs/browserLink - -
+2023-09-13 14:50:14.404 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.9287ms
+2023-09-13 14:50:15.980 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/swagger/v1/swagger.json - -
+2023-09-13 14:50:16.011 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 31.2694ms
+2023-09-13 14:50:31.065 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/getAllInventories - -
+2023-09-13 14:50:31.066 +05:30 [INF] CORS policy execution successful.
+2023-09-13 14:50:31.066 +05:30 [INF] Executing endpoint 'SupplyChainManagement.API.Controllers.InventoryController.GetAllInventories (SupplyChainManagement.API)'
+2023-09-13 14:50:31.066 +05:30 [INF] Route matched with {action = "GetAllInventories", controller = "Inventory"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[SupplyChainManagement.Entity.Models.Inventory] GetAllInventories() on controller SupplyChainManagement.API.Controllers.InventoryController (SupplyChainManagement.API).
+2023-09-13 14:50:41.251 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/getAllOrders - -
+2023-09-13 14:50:41.252 +05:30 [INF] CORS policy execution successful.
+2023-09-13 14:50:41.252 +05:30 [INF] Executing endpoint 'SupplyChainManagement.API.Controllers.OrderController.GetAllOrders (SupplyChainManagement.API)'
+2023-09-13 14:50:41.253 +05:30 [INF] Route matched with {action = "GetAllOrders", controller = "Order"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[SupplyChainManagement.Entity.Models.Orders] GetAllOrders() on controller SupplyChainManagement.API.Controllers.OrderController (SupplyChainManagement.API).
+2023-09-13 14:50:45.879 +05:30 [INF] Executed DbCommand (8,929ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT i.inventory_id, i.last_updated, i.location_id, i.product_id, i.quantity_available
+FROM inventory AS i
+2023-09-13 14:50:45.881 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SupplyChainManagement.Entity.Models.Inventory, SupplyChainManagement.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-13 14:50:45.881 +05:30 [INF] Executed action SupplyChainManagement.API.Controllers.InventoryController.GetAllInventories (SupplyChainManagement.API) in 14815.3888ms
+2023-09-13 14:50:45.883 +05:30 [INF] Executed endpoint 'SupplyChainManagement.API.Controllers.InventoryController.GetAllInventories (SupplyChainManagement.API)'
+2023-09-13 14:50:45.883 +05:30 [INF] Executed DbCommand (3,613ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT o.order_id, o.inventory_id, o.order_date, o.product_id, o.quantity_ordered, o.status
+FROM orders AS o
+2023-09-13 14:50:45.884 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/getAllInventories - - - 200 - application/json;+charset=utf-8 14818.2752ms
+2023-09-13 14:50:45.884 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SupplyChainManagement.Entity.Models.Orders, SupplyChainManagement.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-13 14:50:45.892 +05:30 [INF] Executed action SupplyChainManagement.API.Controllers.OrderController.GetAllOrders (SupplyChainManagement.API) in 4639.0867ms
+2023-09-13 14:50:45.897 +05:30 [INF] Executed endpoint 'SupplyChainManagement.API.Controllers.OrderController.GetAllOrders (SupplyChainManagement.API)'
+2023-09-13 14:50:45.897 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/getAllOrders - - - 200 - application/json;+charset=utf-8 4645.6440ms
+2023-09-13 14:50:46.916 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5204/getAllProducts - -
+2023-09-13 14:50:46.916 +05:30 [INF] CORS policy execution successful.
+2023-09-13 14:50:46.916 +05:30 [INF] Executing endpoint 'SupplyChainManagement.API.Controllers.ProductController.GetAllProducts (SupplyChainManagement.API)'
+2023-09-13 14:50:46.916 +05:30 [INF] Route matched with {action = "GetAllProducts", controller = "Product"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[SupplyChainManagement.Entity.Models.Product] GetAllProducts() on controller SupplyChainManagement.API.Controllers.ProductController (SupplyChainManagement.API).
+2023-09-13 14:50:47.002 +05:30 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT p.product_id, p.price_per_unit, p.product_description, p.product_name, p.unit_of_measure
+FROM product AS p
+2023-09-13 14:50:47.002 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SupplyChainManagement.Entity.Models.Product, SupplyChainManagement.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-13 14:50:47.002 +05:30 [INF] Executed action SupplyChainManagement.API.Controllers.ProductController.GetAllProducts (SupplyChainManagement.API) in 86.1003ms
+2023-09-13 14:50:47.002 +05:30 [INF] Executed endpoint 'SupplyChainManagement.API.Controllers.ProductController.GetAllProducts (SupplyChainManagement.API)'
+2023-09-13 14:50:47.002 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5204/getAllProducts - - - 200 - application/json;+charset=utf-8 86.8033ms

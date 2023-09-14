@@ -1,26 +1,91 @@
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
 // components
-import Iconify from '../components/iconify';
+import axios from 'axios';
+
 // sections
 import {
   AppTasks,
-  AppNewsUpdate,
   AppOrderTimeline,
   AppCurrentVisits,
-  AppWebsiteVisits,
-  AppTrafficBySite,
   AppWidgetSummary,
   AppConversionRates,
 } from '../sections/@dashboard/app';
+import OrdersPage from './OrdersPage';
 
 // ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
   const theme = useTheme();
+
+  const [totalOrders, setTotalOrders] = useState(0);
+  const [pendingOrders, setPendingOrders] = useState(0);
+  const [deliveredOrders, setDeliveredOrders] = useState(0);
+  const [totalProducts, setTotalProducts] = useState(0);
+
+
+  const getAllOrders = async () => {
+    const res = await axios.get('http://localhost:5204/getAllOrders', {
+      withCredentials: false
+    },
+    ).catch(e => setTotalOrders(-1)).then(
+      res => (
+        res.data.length ? setTotalOrders(res.data.length) : setTotalOrders('No Orders Yet')
+      )
+    )
+  };
+
+  const getPendingOrders = async () => {
+    const res = await axios.get('http://localhost:5204/getAllOrders', {
+      withCredentials: false
+    },
+    ).catch(e => setPendingOrders(-1)).then(
+      res => (res.data.filter(row => (
+        row.status === 'Placed'
+      )
+      ))
+    ).then(data=>data.length ? setPendingOrders(data.length) : setPendingOrders('No Orders Yet')
+    )
+  };
+
+  const getDeliveredOrders = async () => {
+    const res = await axios.get('http://localhost:5204/getAllOrders', {
+      withCredentials: false
+    },
+    ).catch(e => setDeliveredOrders(-1)).then(
+      res => (res.data.filter(row => (
+        row.status === 'Delivered'
+      )
+      ))
+    ).then(data=>data.length ? setDeliveredOrders(data.length) : setDeliveredOrders('No Orders Yet')
+    )
+  };
+
+  const getAllProducts = async () => {
+    const res = await axios.get('http://localhost:5204/getAllProducts', {
+      withCredentials: false
+    },
+    ).catch(e => setTotalProducts(-1)).then(
+      res => (
+        res.data.length ? setTotalProducts(res.data.length) : setTotalProducts('No Products Yet')
+      )
+    )
+  };
+
+  useEffect(() => {
+   setInterval(() => {
+    getAllOrders();
+    getPendingOrders();
+    getDeliveredOrders();
+    getAllProducts();
+   }, 10000);
+  }, [])
+
+
 
   return (
     <>
@@ -35,21 +100,21 @@ export default function DashboardAppPage() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Orders" total={714000} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary title="Total Orders" total={totalOrders} imageSrc={'/assets/icons/ic_order.svg'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Pending Order" total={1352831} color="info" icon={'ant-design:apple-filled'} />
+            <AppWidgetSummary title="Pending Orders" total={pendingOrders} color="info" imageSrc={'/assets/icons/ic_pending_order.svg'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Orders Delivered" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
+            <AppWidgetSummary title="Orders Delivered" total={deliveredOrders} color="warning" imageSrc={'/assets/icons/ic_deliver.svg'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Customers" total={234} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary title="Total Products" total={totalProducts} color="error" imageSrc={'/assets/icons/ic_customer.svg'} />
           </Grid>
-          
+
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
               title="Top Selling Products"
@@ -58,13 +123,15 @@ export default function DashboardAppPage() {
                 { label: 'Asia', value: 5435 },
                 { label: 'Europe', value: 1443 },
                 { label: 'Africa', value: 4443 },
+                { label: 'India', value: 4443 },
+                { label: 'India', value: 4443 },
               ]}
-              chartColors={[
-                theme.palette.primary.main,
-                theme.palette.info.main,
-                theme.palette.warning.main,
-                theme.palette.error.main,
-              ]}
+            // chartColors={[
+            //   theme.palette.primary.main,
+            //   theme.palette.info.main,
+            //   theme.palette.warning.main,
+            //   theme.palette.error.main,
+            // ]}
             />
           </Grid>
 
