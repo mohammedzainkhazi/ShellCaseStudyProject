@@ -3,3 +3,5 @@ Backend/SupplyChainManagement.API/obj/Debug*
 Backend/SupplyChainManagement.API/bin/Debug/*
 Backend/SupplyChainManagement.Data/obj/Debug/*
 Backend/SupplyChainManagement.Entity/bin/Debug/*
+Backend
+node_modules

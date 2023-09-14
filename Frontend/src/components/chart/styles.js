@@ -18,7 +18,7 @@ export default function StyledChart() {
             border: 0,
             color: theme.palette.text.primary,
             boxShadow: theme.customShadows.dropdown,
-            borderRadius: Number(theme.shape.borderRadius) * 1.5,
+            borderRadius: Number(theme.shape.borderRadius) * 2,
             '&:before': { borderBottomColor: 'transparent' },
             '&:after': { borderBottomColor: alpha(theme.palette.background.default, 0.8) },
           },
