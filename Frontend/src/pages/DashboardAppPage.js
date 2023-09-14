@@ -30,7 +30,7 @@ export default function DashboardAppPage() {
 
   const getAllOrders = async () => {
     const res = await axios.get('http://localhost:5204/getAllOrders', {
-      withCredentials: false
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
     },
     ).catch(e => setTotalOrders(-1)).then(
       res => (
@@ -41,7 +41,7 @@ export default function DashboardAppPage() {
 
   const getPendingOrders = async () => {
     const res = await axios.get('http://localhost:5204/getAllOrders', {
-      withCredentials: false
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
     },
     ).catch(e => setPendingOrders(-1)).then(
       res => (res.data.filter(row => (
@@ -54,8 +54,13 @@ export default function DashboardAppPage() {
 
   const getDeliveredOrders = async () => {
     const res = await axios.get('http://localhost:5204/getAllOrders', {
-      withCredentials: false
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
     },
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}` 
+      }
+    }
     ).catch(e => setDeliveredOrders(-1)).then(
       res => (res.data.filter(row => (
         row.status === 'Delivered'
@@ -67,7 +72,7 @@ export default function DashboardAppPage() {
 
   const getAllProducts = async () => {
     const res = await axios.get('http://localhost:5204/getAllProducts', {
-      withCredentials: false
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
     },
     ).catch(e => setTotalProducts(-1)).then(
       res => (
@@ -77,6 +82,10 @@ export default function DashboardAppPage() {
   };
 
   useEffect(() => {
+    getAllOrders();
+    getPendingOrders();
+    getDeliveredOrders();
+    getAllProducts();
    setInterval(() => {
     getAllOrders();
     getPendingOrders();

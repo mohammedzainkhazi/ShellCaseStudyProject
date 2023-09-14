@@ -4,6 +4,7 @@ using SupplyChainManagement.Services;
 using SupplyChainManagement.Entity.Models;
 using System.Data;
 using NuGet.Protocol;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SupplyChainManagement.API.Controllers
 {
@@ -22,16 +23,19 @@ namespace SupplyChainManagement.API.Controllers
         {
             _OrderService = service;
         }
+        [Authorize]
         [HttpGet("/getAllOrders")]
         public IEnumerable<Orders> GetAllOrders()
         {
             return _OrderService.GetAllOrders();
         }
+        [Authorize]
         [HttpGet("getOrder/{id}")]
         public Orders GetOrderById(int id)
         {
             return _OrderService.GetOrderById(id);
         }
+        [Authorize]
         [HttpPost("/addOrder")]
         public IActionResult AddOrder([FromBody] Orders Order)
         {

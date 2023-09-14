@@ -56,7 +56,7 @@ export default function InventoryPage() {
 
   const getInventories = async () => {
     const res = await axios.get('http://localhost:5204/getAllInventories', {
-      withCredentials: false
+           headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
     },
     ).catch(e => console.log(e));
 

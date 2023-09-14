@@ -561,3 +561,4 @@ E:\ShellCaseStudyProject\Backend\SupplyChainManagement.API\bin\Debug\net6.0\Seri
 E:\ShellCaseStudyProject\Backend\SupplyChainManagement.API\bin\Debug\net6.0\Serilog.Sinks.Console.dll
 E:\ShellCaseStudyProject\Backend\SupplyChainManagement.API\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
 E:\ShellCaseStudyProject\Backend\SupplyChainManagement.API\bin\Debug\net6.0\Serilog.Sinks.File.dll
+E:\ShellCaseStudyProject\Backend\SupplyChainManagement.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

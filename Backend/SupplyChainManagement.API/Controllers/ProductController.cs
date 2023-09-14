@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SupplyChainManagement.Services;
 using SupplyChainManagement.Entity.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SupplyChainManagement.API.Controllers
 {
@@ -14,6 +15,7 @@ namespace SupplyChainManagement.API.Controllers
         {
             _ProductService = service;
         }
+        [Authorize]
         [HttpGet("/getAllProducts")]
         public IEnumerable<Product> GetAllProducts()
         {

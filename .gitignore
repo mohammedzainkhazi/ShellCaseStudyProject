@@ -1,1 +1,5 @@
 Backend/SupplyChainManagement.API/.vs/*
+Backend/SupplyChainManagement.API/obj/Debug*
+Backend/SupplyChainManagement.API/bin/Debug/*
+Backend/SupplyChainManagement.Data/obj/Debug/*
+Backend/SupplyChainManagement.Entity/obj/Debug/*
