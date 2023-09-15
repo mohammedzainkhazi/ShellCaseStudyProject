@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { faker } from '@faker-js/faker';
+import axios from 'axios';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
 // components
-import axios from 'axios';
+import TimeLineView from './AppTimeLineView';
 
 // sections
 import {
@@ -15,7 +17,6 @@ import {
   AppWidgetSummary,
   AppConversionRates,
 } from '../sections/@dashboard/app';
-import OrdersPage from './OrdersPage';
 
 
 // import './DashboardAppPage.css'
@@ -30,6 +31,8 @@ export default function DashboardAppPage() {
   const [totalProducts, setTotalProducts] = useState(0);
   const [topProducts, setTopProducts] = useState([]);
   const [pendingTasks, setPendingTasks] = useState([]);
+  const [inventoryQty, setinventoryQty] = useState([]);
+  const [timeLine, setTimeLine] = useState([]);
 
   const getAllOrders = async () => {
     const res = await axios.get('http://localhost:5204/getAllOrders', {
@@ -107,6 +110,24 @@ export default function DashboardAppPage() {
     )
   };
 
+  const getInventoryQty = async () => {
+    const res = await axios.get('http://localhost:5204/getAllInventories', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).then(data=>data.length ? console.log(data) : setinventoryQty([])
+    )
+  };
+  const getOrdersTimeline = async () => {
+    const res = await axios.get('http://localhost:5204/getAllOrders', {
+      headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+     },
+     ).catch(e => setTotalOrders(-1)).then(
+       res => (
+         res.data.length ? setTimeLine(res.data) : setTimeLine([])
+       )
+     )
+  };
+
   useEffect(() => {
     getAllOrders();
     getPendingOrders();
@@ -114,6 +135,8 @@ export default function DashboardAppPage() {
     getAllProducts();
     getTopProducts();
     getPendingTasks();
+    getInventoryQty();
+    getOrdersTimeline();
    setInterval(() => {
     getAllOrders();
     getPendingOrders();
@@ -121,10 +144,19 @@ export default function DashboardAppPage() {
     getAllProducts();
     getTopProducts();
     getPendingTasks();
+    getInventoryQty();
+    getOrdersTimeline();
    }, 10000);
   }, [])
 
-
+  function DateDisplay(dateStr) {
+    const inputDate = new Date(dateStr);
+    const year = inputDate.getFullYear();
+    const month = String(inputDate.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+    const day = String(inputDate.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
+    return formattedDate;
+  }
 
   return (
     
@@ -202,22 +234,8 @@ export default function DashboardAppPage() {
             <AppCurrentVisits
               title="Top Selling Products"
               chartData={
-                // [
-                // { label: 'America', value: 4344 },
-                // { label: 'Asia', value: 5435 },
-                // { label: 'Europe', value: 1443 },
-                // { label: 'Africa', value: 4443 },
-                // { label: 'India', value: 4443 },
-                // { label: 'India', value: 4443 },
-              // ]
               topProducts
             }
-            // chartColors={[
-            //   theme.palette.primary.main,
-            //   theme.palette.info.main,
-            //   theme.palette.warning.main,
-            //   theme.palette.error.main,
-            // ]}
             />
             </div>
           </Grid>
@@ -227,42 +245,27 @@ export default function DashboardAppPage() {
             <AppConversionRates
               title="Inventory Levels"
               subheader="(+43%) than last year"
-              chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
-              ]}
+              chartData={
+              inventoryQty
+              }
             />
             </div>
           </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <div data-aos="fade-right">
-            <AppOrderTimeline
-              title="Order Timeline"
-              list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: [
-                  '1983, orders, $4220',
-                  '12 Invoices have been paid',
-                  'Order #37745 from September',
-                  'New order placed #XF-2356',
-                  'New order placed #XF-2346',
-                ][index],
-                type: `order${index + 1}`,
-                time: faker.date.past(),
-              }))}
-            />
+          <Grid item xs={10} md={6} lg={6}>
+            <div  className='!w-full bg-white rounded-xl '>
+              <div className='text-blue-500 font-bold p-5'>Orders TimeLine</div>
+              {
+              timeLine.map((order,i)=>(
+                <div className='text-black w-full text-sm p-5 flex-row flex justify-around items-center' key={i}>
+                  <span className='text-orange-400'>{order.product_name}</span><br/>
+                  <span className='text-black pr-5'> Order Placed On  :{'  '} <span className='text-gray-500'>{DateDisplay(order.order_date)}</span></span>
+                </div>
+              ))
+              }
             </div>
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
+          <Grid item xs={12} md={6} lg={6}>
             <div data-aos="fade-left">
             <AppTasks
               title="Pending Orders"

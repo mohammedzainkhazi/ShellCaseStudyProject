@@ -26,18 +26,6 @@ export default function OrdersPage() {
 
   const [orders, setOrders] = useState([]);
 
-  const [page, setPage] = useState(0);
-
-  const [order, setOrder] = useState('asc');
-
-  const [selected, setSelected] = useState([]);
-
-  const [orderBy, setOrderBy] = useState('name');
-
-  const [filterName, setFilterName] = useState('');
-
-  const [rowsPerPage, setRowsPerPage] = useState(5);
-
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
   };
@@ -109,12 +97,12 @@ export default function OrdersPage() {
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}sx={{marginBottom: '10px'}}>
           <Typography variant="h4" gutterBottom sx={{fontFamily: 'ui-sans-serif',  fontWeight: 'bold', marginTop: '20px', marginLeft: '14px'}}>
           
-           <span style={{ fontSize: '1.2em' }}>O</span>rders
+           <span style={{ fontSize: '1.2em' }}>Orders</span>
           </Typography>
           <Button onClick={e=>getOrders().then(data=>setOrders(data))} className='!bg-green-500' variant="contained" startIcon={<Iconify icon="eva:sync-fill" />}>
             Refresh
           </Button>
-          <Button className='!bg-blue-500' variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+          <Button className='hidden !bg-blue-500' variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Order
           </Button>
         </Stack>

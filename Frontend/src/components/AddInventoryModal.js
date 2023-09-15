@@ -5,7 +5,7 @@ function AddInventoryModal({ isOpen, onClose, onAddInventory }) {
   const [inventoryLocation, setinventoryLocation] = useState('');
   const [productName, setproductName] = useState('');
   const [inventoryQty, setinventoryQty] = useState('');
-  const [lastUpdated, setlastUpdated] = useState('');
+  const [lastUpdated, setlastUpdated] = useState(Date.now());
 
   const modalStyle = isOpen ? '' : 'hidden';
   const modalContentStyle = 'bg-white mx-auto my-16 p-6 rounded-lg max-w-md shadow-2xl';
@@ -14,22 +14,26 @@ function AddInventoryModal({ isOpen, onClose, onAddInventory }) {
     const newInventory = {
       inventory_id: 9,
       product_name: productName,
-      location: inventoryLocation,
+      location_name: inventoryLocation,
       quantity_available: inventoryQty,
-      last_Updated: lastUpdated,
+      last_updated: lastUpdated,
     };
+    console.log(newInventory)
 
     const res = await axios
       .post(
         'http://localhost:5204/addInventory',
         {
+          // inventory_id: 'nextval(inventory_inventory_id_seq)',
           product_name: productName,
-          location: inventoryLocation,
+          location_name: inventoryLocation,
           quantity_available: inventoryQty,
-          last_Updated: lastUpdated,
+          last_updated: lastUpdated,
         },
+
         {
-          withCredentials: false,
+          //  headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+          withCredentials:false
         }
       )
       .catch((e) => console.log(e));

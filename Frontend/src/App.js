@@ -13,7 +13,9 @@ import { StyledChart } from './components/chart';
 import ScrollToTop from './components/scroll-to-top';
 
 
-AOS.init();
+AOS.init({
+  once:true
+});
 // ----------------------------------------------------------------------
 
 export default function App() {
