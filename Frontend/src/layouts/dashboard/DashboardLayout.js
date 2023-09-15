@@ -44,7 +44,12 @@ export default function DashboardLayout() {
 
       {/* <div style={{ padding: '0px', backgroundColor: '#fcf5b3', margin:0,width: '100%' }}> */}
       {/* <div style={{ padding: '0px', backgroundColor: 'moccasin', margin:0,width: '100%' }}> */}
-      <div style={{ padding: '0px', backgroundColor: '#fae9ca', margin:0,width: '100%' }}>
+      <div 
+      data-aos="fade-left"
+      data-aos-anchor="#example-anchor"
+      data-aos-offset="500"
+      data-aos-duration="500"
+      style={{ padding: '0px', backgroundColor: 'rgba(250, 233, 202, 0)', margin:0,width: '100%', backdropFilter: 'blur(20px)' }}>
       
 
       <Main>
