@@ -1,7 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState, useMemo  } from 'react';
+// import { useMemo } from 'react';
 // @mui
 import {
   Card,
@@ -140,6 +141,13 @@ export default function UserPage() {
     setFilterName(event.target.value);
   };
 
+
+  // to reduce the gap below the table
+  const maxTableHeight = useMemo(() => {
+    const numRowsDisplayed = Math.min(rowsPerPage, USERLIST.length);
+    return (numRowsDisplayed * 80)+100;
+  }, [rowsPerPage]);
+
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USERLIST.length) : 0;
 
   const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
@@ -153,16 +161,16 @@ export default function UserPage() {
       </Helmet>
 
       <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            User
+        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5} sx={{marginBottom: '10px'}}>
+          <Typography variant="h4" gutterBottom sx={{fontFamily: 'ui-sans-serif',  fontWeight: 'bold', marginTop: '20px', marginLeft: '3px'}}>
+          <span style={{ fontSize: '1.2em' }}>U</span>sers
           </Typography>
         </Stack>
 
-        <Card>
+        <Card >
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
-          <Scrollbar>
+          <Scrollbar sx={{  maxHeight: `${maxTableHeight}px` }}>
             <TableContainer sx={{ minWidth: 800 }}>
               <Table>
                 <UserListHead
@@ -174,13 +182,13 @@ export default function UserPage() {
                   onRequestSort={handleRequestSort}
                   onSelectAllClick={handleSelectAllClick}
                 />
-                <TableBody>
+                <TableBody >
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                     const { id, name, role, status, company, avatarUrl, isVerified } = row;
                     const selectedUser = selected.indexOf(name) !== -1;
 
                     return (
-                      <TableRow hover key={id} tabIndex={-1} role="checkbox" selected={selectedUser}>
+                      <TableRow hover key={id} tabIndex={-1} role="checkbox" selected={selectedUser} className="border border-gray-100 ">
                         <TableCell padding="checkbox">
                           <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, name)} />
                         </TableCell>
