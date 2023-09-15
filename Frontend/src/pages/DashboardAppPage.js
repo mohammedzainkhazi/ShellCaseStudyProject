@@ -168,9 +168,9 @@ export default function DashboardAppPage() {
       <Container maxWidth="xl" sx={{ background: '#fae9ca',  padding: 0, margin: 0 }}>
         <Typography variant="h4" sx={{ mb: 5, fontFamily: 'ui-sans-serif',  fontWeight: 'bold', marginTop: '20px', marginLeft: '3px'}} >
           Hi, Welcome back <span className='font-bold text-2xl text-[#fc5c09]'>{JSON.parse(localStorage.getItem('user')).user_name}</span> */}
-      <Container maxWidth="xl" sx={{ background: '#fae9ca',  padding: 0, margin: 0 }}>
+      <Container maxWidth="xl" sx={{ background: 'rgba(250, 233, 202, 0)',  padding: 0, margin: 0 }}>
         <Typography variant="h4" sx={{ mb: 5, fontFamily: 'ui-sans-serif',  fontWeight: 'bold', marginTop: '20px', marginLeft: '3px' }}>
-          Hi, Welcome back 
+          Hi, Welcome back{' '} 
           <span className='font-bold text-2xl text-[#fc5c09]'>{JSON.parse(localStorage.getItem('user')).user_name}</span>        </Typography>
 
         <Grid container spacing={3}>

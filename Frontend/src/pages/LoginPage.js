@@ -14,6 +14,9 @@ import useResponsive from '../hooks/useResponsive';
 // components
 // sections
 import { LoginForm } from '../sections/auth/login';
+
+
+import AnimatedImage from '../components/animation/AnimationImage';
 // ----------------------------------------------------------------------
 
 const StyledRoot = styled('div')(({ theme }) => ({
@@ -49,6 +52,28 @@ export default function LoginPage() {
 
   const [signUpPage, setsignUpPage] = useState(false);
 
+
+  
+  const welcomeText = signUpPage
+? "Hi, New User. Glad to Have You with Us"
+: "Hi, Welcome Back";
+
+const pageImage = signUpPage
+? "/assets/illustrations/illustration_sign.png"
+: "/assets/illustrations/illustration_login.png";
+
+const signinupText = signUpPage
+? "Sign Up "
+: "Sign In";
+
+
+const animationConfig = {
+  "data-aos": "fade-left",
+  "data-aos-anchor": "#example-anchor",
+  "data-aos-offset": "500",
+  "data-aos-duration": "1500",
+};
+
   return (
     <>
       <Helmet>
@@ -78,17 +103,28 @@ export default function LoginPage() {
 
         {mdUp && (
           <StyledSection>
-            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Hi, Welcome Back
-            </Typography>
-            <img src="/assets/illustrations/illustration_login.png" alt="login" />
-          </StyledSection>
+            <div>
+          <Typography variant="h4" sx={{ px: 5, mt: 10, mb: 5 }}>
+            {welcomeText}
+          </Typography>
+          </div>
+          <AnimatedImage src={pageImage} alt="login" animationConfig={animationConfig} />
+     
+          {/* <div 
+          data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="1500"
+          >
+          <img src={pageImage} alt="login" />
+          </div> */}
+        </StyledSection>
         )}
 
         <Container maxWidth="sm">
           <StyledContent>
             <Typography variant="h4" gutterBottom>
-              Sign in to Minimal
+              {signinupText}
             </Typography>
 
             {signUpPage ? (
