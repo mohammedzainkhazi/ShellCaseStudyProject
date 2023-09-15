@@ -13,9 +13,9 @@ AppOrderTimeline.propTypes = {
   list: PropTypes.array.isRequired,
 };
 
-export default function AppOrderTimeline({ title, subheader, list, ...other }) {
+export default function AppOrderTimeline({ title, subheader, list }) {
   return (
-    <Card {...other}>
+    <Card >
       <CardHeader title={title} subheader={subheader} />
 
       <CardContent
@@ -25,11 +25,16 @@ export default function AppOrderTimeline({ title, subheader, list, ...other }) {
           },
         }}
       >
-        <Timeline>
           {list.map((item, index) => (
-            <OrderItem key={item.id} item={item} isLast={index === list.length - 1} />
+            // <OrderItem key={index} item={item} isLast={index === list.length - 1} />
+            <div className='w-full bg-yellow-400'>
+              {
+                item.map((order,i)=>(
+                  <div>{order}</div>
+                ))
+              }  
+            </div>
           ))}
-        </Timeline>
       </CardContent>
     </Card>
   );
@@ -47,27 +52,26 @@ OrderItem.propTypes = {
 };
 
 function OrderItem({ item, isLast }) {
-  const { type, title, time } = item;
   return (
     <TimelineItem>
       <TimelineSeparator>
         <TimelineDot
-          color={
-            (type === 'order1' && 'primary') ||
-            (type === 'order2' && 'success') ||
-            (type === 'order3' && 'info') ||
-            (type === 'order4' && 'warning') ||
-            'error'
-          }
+          // color={
+          //   (type === 'order1' && 'primary') ||
+          //   (type === 'order2' && 'success') ||
+          //   (type === 'order3' && 'info') ||
+          //   (type === 'order4' && 'warning') ||
+          //   'error'
+          // }
         />
         {isLast ? null : <TimelineConnector />}
       </TimelineSeparator>
 
       <TimelineContent>
-        <Typography variant="subtitle2">{title}</Typography>
+        <Typography variant="subtitle2">{}</Typography>
 
         <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-          {fDateTime(time)}
+          {fDateTime(item.last_updated)}
         </Typography>
       </TimelineContent>
     </TimelineItem>

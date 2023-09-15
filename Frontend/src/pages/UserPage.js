@@ -1,7 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState, useMemo  } from 'react';
+import { useState, useMemo,useEffect  } from 'react';
+import axios from 'axios';
 // import { useMemo } from 'react';
 // @mui
 import {
@@ -35,12 +36,10 @@ import USERLIST from '../_mock/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
+  { id: 'id', label: 'Id', alignRight: false },
   { id: 'name', label: 'Name', alignRight: false },
-  { id: 'company', label: 'Company', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
-  { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'status', label: 'Status', alignRight: false },
-  { id: '' },
+  { id: 'email', label: 'Email', alignRight: false },
+  // { id: '' },  
 ];
 
 // ----------------------------------------------------------------------
@@ -73,6 +72,7 @@ function applySortFilter(array, comparator, query) {
   }
   return stabilizedThis.map((el) => el[0]);
 }
+
 
 export default function UserPage() {
   const [open, setOpen] = useState(null);
@@ -152,7 +152,19 @@ export default function UserPage() {
 
   const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
 
-  const isNotFound = !filteredUsers.length && !!filterName;
+  const [users, setUsers] = useState([]);
+  const getUsers = async () => {
+    const res = await axios.get('http://localhost:5204/getAllUsers', {
+           headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => console.log(e)).then(data=>setUsers(data.data));
+    return [];
+  };
+
+  useEffect(() => {
+    getUsers();
+  }, [])
+  
 
   return (
     <>
@@ -170,89 +182,52 @@ export default function UserPage() {
         <Card >
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
-          <Scrollbar sx={{  maxHeight: `${maxTableHeight}px` }}>
-            <TableContainer sx={{ minWidth: 800 }}>
-              <Table>
-                <UserListHead
-                  order={order}
-                  orderBy={orderBy}
-                  headLabel={TABLE_HEAD}
-                  rowCount={USERLIST.length}
-                  numSelected={selected.length}
-                  onRequestSort={handleRequestSort}
-                  onSelectAllClick={handleSelectAllClick}
-                />
-                <TableBody >
-                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
-                    const selectedUser = selected.indexOf(name) !== -1;
-
-                    return (
-                      <TableRow hover key={id} tabIndex={-1} role="checkbox" selected={selectedUser} className="border border-gray-100 ">
-                        <TableCell padding="checkbox">
-                          <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, name)} />
-                        </TableCell>
-
-                        <TableCell component="th" scope="row" padding="none">
-                          <Stack direction="row" alignItems="center" spacing={2}>
-                            <Avatar alt={name} src={avatarUrl} />
-                            <Typography variant="subtitle2" noWrap>
-                              {name}
-                            </Typography>
-                          </Stack>
-                        </TableCell>
-
-                        <TableCell align="left">{company}</TableCell>
-
-                        <TableCell align="left">{role}</TableCell>
-
-                        <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
-
-                        <TableCell align="left">
-                          <Label color={(status === 'banned' && 'error') || 'success'}>{sentenceCase(status)}</Label>
-                        </TableCell>
-
-                        <TableCell align="right">
-                          <IconButton size="large" color="inherit" onClick={handleOpenMenu}>
-                            <Iconify icon={'eva:more-vertical-fill'} />
-                          </IconButton>
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-                  {emptyRows > 0 && (
-                    <TableRow style={{ height: 53 * emptyRows }}>
-                      <TableCell colSpan={6} />
-                    </TableRow>
-                  )}
-                </TableBody>
-
-                {isNotFound && (
-                  <TableBody>
-                    <TableRow>
-                      <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
-                        <Paper
-                          sx={{
-                            textAlign: 'center',
-                          }}
-                        >
-                          <Typography variant="h6" paragraph>
-                            Not found
-                          </Typography>
-
-                          <Typography variant="body2">
-                            No results found for &nbsp;
-                            <strong>&quot;{filterName}&quot;</strong>.
-                            <br /> Try checking for typos or using complete words.
-                          </Typography>
-                        </Paper>
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                )}
-              </Table>
+            <TableContainer className='!w-full !overflow-hidden'>
+            <section className="container px-4 mx-auto">
+            <div className="flex flex-col">
+              <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                  <div className="overflow-hidden border border-gray-200  md:rounded-lg">
+                    <table className="min-w-full divide-y divide-gray-200 ">
+                      <thead className="bg-gray-50 ">
+                        <tr>
+                          {TABLE_HEAD.map((head, index) => (
+                            <th
+                              key={index}
+                              scope="col"
+                              className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
+                            >
+                              {head.label}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200  ">
+                        {users?.map((user, i) => (
+                          <tr key={i}>
+                            <td className="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">
+                              {user.user_id}
+                            </td>
+                            <td className="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">
+                              {user.user_name}
+                            </td>
+                            <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
+                              {user.user_email}
+                            </td>
+                            
+                            <td className="px-4 py-4 text-sm whitespace-nowrap">
+                              <div/>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
             </TableContainer>
-          </Scrollbar>
 
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
