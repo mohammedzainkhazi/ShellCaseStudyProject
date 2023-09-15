@@ -39,12 +39,13 @@ function NavItem({ item }) {
       sx={{
         '&.active': {
           color: 'text.primary',
-          bgcolor: 'action.selected',
+          backgroundImage: 'linear-gradient(45deg, #f884478a, #2d7fea00)',
+          // bgcolor: 'action.selected',
           fontWeight: 'fontWeightBold',
         },
       }}
     >
-      <StyledNavItemIcon>{icon && icon}</StyledNavItemIcon>
+      <StyledNavItemIcon sx={{ color: '#fc9449'}}>{icon && icon}</StyledNavItemIcon>
 
       <ListItemText disableTypography primary={title} />
 

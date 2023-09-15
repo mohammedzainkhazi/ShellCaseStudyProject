@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import Header from './header';
 import Nav from './nav';
 
+import '../../pages/DashboardAppPage.css'
 // ----------------------------------------------------------------------
 
 const APP_BAR_MOBILE = 64;
@@ -41,9 +42,17 @@ export default function DashboardLayout() {
 
       <Nav openNav={open} onCloseNav={() => setOpen(false)} />
 
+      {/* <div style={{ padding: '0px', backgroundColor: '#fcf5b3', margin:0,width: '100%' }}> */}
+      {/* <div style={{ padding: '0px', backgroundColor: 'moccasin', margin:0,width: '100%' }}> */}
+      <div style={{ padding: '0px', backgroundColor: '#fae9ca', margin:0,width: '100%' }}>
+      
+
       <Main>
+      
         <Outlet />
+        
       </Main>
+      </div>
     </StyledRoot>
   );
 }
