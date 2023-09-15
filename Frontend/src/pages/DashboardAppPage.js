@@ -26,53 +26,103 @@ export default function DashboardAppPage() {
   const [pendingOrders, setPendingOrders] = useState(0);
   const [deliveredOrders, setDeliveredOrders] = useState(0);
   const [totalProducts, setTotalProducts] = useState(0);
+  const [topProducts, setTopProducts] = useState([]);
+  const [pendingTasks, setPendingTasks] = useState([]);
 
   const getAllOrders = async () => {
-    const res = await axios
-      .get('http://localhost:5204/getAllOrders', {
-        withCredentials: false,
-      })
-      .catch((e) => setTotalOrders(-1))
-      .then((res) => (res.data.length ? setTotalOrders(res.data.length) : setTotalOrders('No Orders Yet')));
+    const res = await axios.get('http://localhost:5204/getAllOrders', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => setTotalOrders(-1)).then(
+      res => (
+        res.data.length ? setTotalOrders(res.data.length) : setTotalOrders('No Orders Yet')
+      )
+    )
   };
 
   const getPendingOrders = async () => {
-    const res = await axios
-      .get('http://localhost:5204/getAllOrders', {
-        withCredentials: false,
-      })
-      .catch((e) => setPendingOrders(-1))
-      .then((res) => res.data.filter((row) => row.status === 'Placed'))
-      .then((data) => (data.length ? setPendingOrders(data.length) : setPendingOrders('No Orders Yet')));
+    const res = await axios.get('http://localhost:5204/getAllOrders', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => setPendingOrders(-1)).then(
+      res => (res.data.filter(row => (
+        row.status === 'Placed'
+      )
+      ))
+    ).then(data=>data.length ? setPendingOrders(data.length) : setPendingOrders('No Orders Yet')
+    )
   };
 
   const getDeliveredOrders = async () => {
-    const res = await axios
-      .get('http://localhost:5204/getAllOrders', {
-        withCredentials: false,
-      })
-      .catch((e) => setDeliveredOrders(-1))
-      .then((res) => res.data.filter((row) => row.status === 'Delivered'))
-      .then((data) => (data.length ? setDeliveredOrders(data.length) : setDeliveredOrders('No Orders Yet')));
+    const res = await axios.get('http://localhost:5204/getAllOrders', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}` 
+      }
+    }
+    ).catch(e => setDeliveredOrders(-1)).then(
+      res => (res.data.filter(row => (
+        row.status === 'Delivered'
+      )
+      ))
+    ).then(data=>data.length ? setDeliveredOrders(data.length) : setDeliveredOrders('No Orders Yet')
+    )
   };
 
   const getAllProducts = async () => {
-    const res = await axios
-      .get('http://localhost:5204/getAllProducts', {
-        withCredentials: false,
-      })
-      .catch((e) => setTotalProducts(-1))
-      .then((res) => (res.data.length ? setTotalProducts(res.data.length) : setTotalProducts('No Products Yet')));
+    const res = await axios.get('http://localhost:5204/getAllProducts', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => setTotalProducts(-1)).then(
+      res => (
+        res.data.length ? setTotalProducts(res.data.length) : setTotalProducts('No Products Yet')
+      )
+    )
+  };
+  const getTopProducts = async () => {
+    const res = await axios.get('http://localhost:5204/getTopProducts', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => setTopProducts([])).then(
+      res => (
+        res.data.length ? setTopProducts(res.data) : setTopProducts([])
+      )
+    )
+  };
+
+  const getPendingTasks = async () => {
+    const res = await axios.get('http://localhost:5204/getAllOrders', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => setPendingOrders(-1)).then(
+      res => (res.data.filter(row => (
+        row.status === 'Placed'
+      )
+      ))
+    ).then(data=>data.length>=1 ? setPendingTasks(data) : setPendingTasks([])
+    )
   };
 
   useEffect(() => {
-    setInterval(() => {
-      getAllOrders();
-      getPendingOrders();
-      getDeliveredOrders();
-      getAllProducts();
-    }, 5000);
-  }, []);
+    getAllOrders();
+    getPendingOrders();
+    getDeliveredOrders();
+    getAllProducts();
+    getTopProducts();
+    getPendingTasks();
+   setInterval(() => {
+    getAllOrders();
+    getPendingOrders();
+    getDeliveredOrders();
+    getAllProducts();
+    getTopProducts();
+    getPendingTasks();
+   }, 10000);
+  }, [])
+
+
 
   return (
     <>
@@ -121,20 +171,23 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
               title="Top Selling Products"
-              chartData={[
-                { label: 'America', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
-                { label: 'India', value: 4443 },
-                { label: 'India', value: 4443 },
-              ]}
-              // chartColors={[
-              //   theme.palette.primary.main,
-              //   theme.palette.info.main,
-              //   theme.palette.warning.main,
-              //   theme.palette.error.main,
-              // ]}
+              chartData={
+                // [
+                // { label: 'America', value: 4344 },
+                // { label: 'Asia', value: 5435 },
+                // { label: 'Europe', value: 1443 },
+                // { label: 'Africa', value: 4443 },
+                // { label: 'India', value: 4443 },
+                // { label: 'India', value: 4443 },
+              // ]
+              topProducts
+            }
+            // chartColors={[
+            //   theme.palette.primary.main,
+            //   theme.palette.info.main,
+            //   theme.palette.warning.main,
+            //   theme.palette.error.main,
+            // ]}
             />
           </Grid>
 
@@ -177,13 +230,10 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={8}>
             <AppTasks
               title="Pending Orders"
-              list={[
-                { id: '1', label: 'Create FireStone Logo' },
-                { id: '2', label: 'Add SCSS and JS files if required' },
-                { id: '3', label: 'Stakeholder Meeting' },
-                { id: '4', label: 'Scoping & Estimations' },
-                { id: '5', label: 'Sprint Showcase' },
-              ]}
+              list={
+                pendingTasks
+              }
+              getPendingTasks={getPendingTasks}
             />
           </Grid>
         </Grid>

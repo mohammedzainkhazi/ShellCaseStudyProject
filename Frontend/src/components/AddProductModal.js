@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-function AddProductModal({ isOpen, onClose, onAddProduct }) {
+function AddProductModal({ isOpen, onClose, onAddProduct, getProducts }) {
   const [productName, setProductName] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [productDesc, setProductDesc] = useState('');
@@ -19,7 +19,7 @@ function AddProductModal({ isOpen, onClose, onAddProduct }) {
       //   product_description: productDesc,
       //     unit_of_measure: productUnit,
 
-      product_id: 9,
+      product_id: Math.random(20),
       product_name: productName,
       product_description: productDesc,
       unit_of_measure: productUnit,
@@ -46,13 +46,9 @@ function AddProductModal({ isOpen, onClose, onAddProduct }) {
     }
 
     // Call the onAddProduct function passed from the parent component
-    onAddProduct(newProduct);
-
-    // Clear the form inputs
-    setProductName('');
-    setProductPrice('');
-    setProductDesc('');
-    setProductUnit('');
+    
+    getProducts();
+    onAddProduct(); 
 
     // Close the modal
     onClose();

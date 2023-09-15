@@ -62,11 +62,10 @@ export default function InventoryPage() {
   // ----------------------------------------------------------------------
 
   const getInventories = async () => {
-    const res = await axios
-      .get('http://localhost:5204/getAllInventories', {
-        withCredentials: false,
-      })
-      .catch((e) => console.log(e));
+    const res = await axios.get('http://localhost:5204/getAllInventories', {
+           headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => console.log(e));
 
     if (res.data !== null) {
       return res.data;

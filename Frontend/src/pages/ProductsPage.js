@@ -47,10 +47,11 @@ export default function ProductsPage() {
     setIsModalOpen(false);
   };
 
-  const addProduct = (newProduct) => {
+  const addProduct =  (newProduct) => {
     // Add the new product to the list
     setProducts([...products, newProduct]);
-    console.log(products);
+    setIsModalOpen(false);
+    getProducts();
   };
 
   const handleOpenMenu = (event) => {
@@ -65,13 +66,14 @@ export default function ProductsPage() {
   const getProducts = async () => {
     const res = await axios
       .get('http://localhost:5204/getAllProducts', {
-        withCredentials: false,
+        headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
       })
       .catch((e) => console.log(e));
 
     if (res.data !== null) {
       return res.data;
     }
+    handleCloseMenu();
     return [];
   };
 

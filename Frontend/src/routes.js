@@ -31,12 +31,20 @@ export default function Router() {
       ],
     },
     {
+      path: '',
+      element: <Navigate to="/dashboard" />,
+    },
+    {
       path: 'login',
       element: <LoginPage />,
     },
     {
       path: 'signup',
       element: <SignUp />,
+    },
+    {
+      path: '404',
+      element: <Page404/>,
     },
     {
       path: '*',
