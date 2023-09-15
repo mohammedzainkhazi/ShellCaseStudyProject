@@ -17,6 +17,8 @@ import {
 } from '../sections/@dashboard/app';
 import OrdersPage from './OrdersPage';
 
+
+// import './DashboardAppPage.css'
 // ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
@@ -88,38 +90,52 @@ export default function DashboardAppPage() {
 
 
   return (
+    
     <>
       <Helmet>
-        <title> Dashboard | Minimal UI </title>
+        <title> Dashboard </title>
       </Helmet>
 
-      <Container maxWidth="xl">
-        <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back <span className='font-bold text-2xl text-blue-400'>{JSON.parse(localStorage.getItem('user')).user_name}</span>
+      <Container maxWidth="xl" sx={{ background: '#fae9ca',  padding: 0, margin: 0 }}>
+        <Typography variant="h4" sx={{ mb: 5, fontFamily: 'ui-sans-serif',  fontWeight: 'bold', marginTop: '20px', marginLeft: '3px'}} >
+          Hi, Welcome back <span className='font-bold text-2xl text-[#fc5c09]'>{JSON.parse(localStorage.getItem('user')).user_name}</span>
         </Typography>
 
         <Grid container spacing={3}>
+       
           <Grid item xs={12} sm={6} md={3}>
+          <div data-aos="zoom-in-up">
             <AppWidgetSummary title="Total Orders" total={totalOrders} imageSrc={'/assets/icons/ic_order.svg'} />
+            </div>
           </Grid>
 
+      
           <Grid item xs={12} sm={6} md={3}>
+          <div data-aos="zoom-in-up">
             <AppWidgetSummary title="Pending Orders" total={pendingOrders} color="info" imageSrc={'/assets/icons/ic_pending_order.svg'} />
-          </Grid>
-
+            </div>
+            </Grid>
+    
+          
           <Grid item xs={12} sm={6} md={3}>
+          <div data-aos="zoom-in-up">
             <AppWidgetSummary title="Orders Delivered" total={deliveredOrders} color="warning" imageSrc={'/assets/icons/ic_deliver.svg'} />
-          </Grid>
+            </div>
+            </Grid>
 
+          
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Products" total={totalProducts} color="error" imageSrc={'/assets/icons/ic_customer.svg'} />
-          </Grid>
-
+          <div data-aos="zoom-in-up">
+            <AppWidgetSummary title="Total Products" total={totalProducts} color="success" imageSrc={'/assets/icons/ic_product.svg'} />
+            </div>
+            </Grid>
+          
           <Grid item xs={12} md={6} lg={4}>
+          <div data-aos="fade-right">
             <AppCurrentVisits
               title="Top Selling Products"
               chartData={[
-                { label: 'America', value: 4344 },
+                { label: 'o', value: 4344 },
                 { label: 'Asia', value: 5435 },
                 { label: 'Europe', value: 1443 },
                 { label: 'Africa', value: 4443 },
@@ -133,9 +149,11 @@ export default function DashboardAppPage() {
             //   theme.palette.error.main,
             // ]}
             />
+            </div>
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
+          <div data-aos="fade-left">
             <AppConversionRates
               title="Inventory Levels"
               subheader="(+43%) than last year"
@@ -152,8 +170,10 @@ export default function DashboardAppPage() {
                 { label: 'United Kingdom', value: 1380 },
               ]}
             />
+            </div>
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
+            <div data-aos="fade-right">
             <AppOrderTimeline
               title="Order Timeline"
               list={[...Array(5)].map((_, index) => ({
@@ -169,9 +189,11 @@ export default function DashboardAppPage() {
                 time: faker.date.past(),
               }))}
             />
+            </div>
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
+            <div data-aos="fade-left">
             <AppTasks
               title="Pending Orders"
               list={[
@@ -182,9 +204,40 @@ export default function DashboardAppPage() {
                 { id: '5', label: 'Sprint Showcase' },
               ]}
             />
+            </div>
           </Grid>
+          {/* <Grid item xs={12} md={6} lg={8}>
+  <div className='flex h-screen w-screen items-center justify-center'>
+    <div className='group relative cursor-pointer border border-gray-700 p-12 rounded-full transition ease-in-out duration-500 hover:border-gray-300 hover:scale-110'>
+      <div className='uppercase text-6xl flex items-center relative'>
+        {"Hello".split("").map((letter, i) => (
+          <div
+            key={i}
+            className='origin-top transition-transform duration-300 ease-in-out group-hover:scale-y-0'
+            style={{ transitionDelay: `${i * 75}ms` }} // Use correct interpolation
+          >
+            {letter}
+          </div>
+        ))}
+      </div>
+      <div className='uppercase text-6xl absolute bottom-0 left-0 flex items-center'>
+        {"Hello".split("").map((letter, i) => (
+          <div
+            key={i}
+            className='origin-bottom transition-transform duration-300 ease-in-out scale-y-0 group-hover:scale-y-100'
+            style={{ transitionDelay: `${i * 75}ms` }} // Use correct interpolation
+          >
+            {letter}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Grid> */}
+
         </Grid>
       </Container>
+      
     </>
   );
 }

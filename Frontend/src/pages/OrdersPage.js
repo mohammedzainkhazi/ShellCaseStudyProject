@@ -99,9 +99,9 @@ export default function OrdersPage() {
       </Helmet>
 
       <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            Orders
+        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5} sx={{marginBottom: '10px'}}>
+          <Typography variant="h4" gutterBottom sx={{fontFamily: 'ui-sans-serif',  fontWeight: 'bold', marginTop: '20px', marginLeft: '14px'}}>
+          <span style={{ fontSize: '1.2em' }}>O</span>rders
           </Typography>
           <Button className='!bg-blue-500' variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Order

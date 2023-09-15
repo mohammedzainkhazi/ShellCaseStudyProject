@@ -23,13 +23,42 @@ const HEADER_MOBILE = 64;
 
 const HEADER_DESKTOP = 92;
 
+// for just transparent nav
+
+// const StyledRoot = styled(AppBar)(({ theme }) => ({
+//   ...bgBlur({ color: theme.palette.background.default }),
+//   boxShadow: 'none',
+//   [theme.breakpoints.up('lg')]: {
+//     width: `calc(100% - ${NAV_WIDTH + 1}px)`,
+//   },
+// }));
+
+
+// for nav with shadow below
+
 const StyledRoot = styled(AppBar)(({ theme }) => ({
   ...bgBlur({ color: theme.palette.background.default }),
-  boxShadow: 'none',
+  boxShadow: '0px 4px 6px rgba(128, 128, 128, 0.2)', // Add a yellow/gray shadow
   [theme.breakpoints.up('lg')]: {
     width: `calc(100% - ${NAV_WIDTH + 1}px)`,
   },
 }));
+
+
+// for yellow dotted nav
+
+// const StyledRoot = styled(AppBar)(({ theme }) => ({
+//   ...bgBlur({ color: theme.palette.background.default }),
+//   boxShadow: 'none',
+//   backgroundImage: 'radial-gradient(circle, transparent 10%, #ffff0042 10%), radial-gradient(circle, transparent 10%, #ffff0042 10%), radial-gradient(circle, transparent 10%, #ffff0042 10%)',
+//   backgroundSize: '80px 80px',
+//   backgroundPosition: '0 0, 40px 40px, 20px 20px',
+//   backgroundColor: '#ff0c008f',
+//   [theme.breakpoints.up('lg')]: {
+//     width: `calc(100% - ${NAV_WIDTH + 1}px)`,
+//   },
+// }));
+
 
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
