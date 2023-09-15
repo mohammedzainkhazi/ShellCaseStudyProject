@@ -13,7 +13,7 @@ import AddInventoryModal from '../components/AddInventoryModal';
 
 const TABLE_HEAD = [
   { id: 'inventory_id', label: 'Id', alignRight: false },
-  { id: 'location', label: 'Location', alignRight: false },
+  { id: 'location_name', label: 'Location', alignRight: false },
   { id: 'product_name', label: 'Product', alignRight: false },
   { id: 'quantity_available', label: 'Quantity', alignRight: false },
   { id: 'last_updated', label: 'Last Updated', alignRight: false },
@@ -113,7 +113,7 @@ export default function InventoryPage() {
                             <th
                               key={index}
                               scope="col"
-                              className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
+                              className="px-12 py-3.5 text-sm font-bold text-left rtl:text-right text-gray-500 "
                             >
                               {head.label}
                             </th>
@@ -127,9 +127,11 @@ export default function InventoryPage() {
                               {prod.inventory_id}
                             </td>
                             <td className="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">
-                              {prod.location}
+                              {prod.location_name}
                             </td>
-                            <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{prod.product_name}</td>
+                            <td className="px-4 py-4 text-sm text-gray-500 text-center whitespace-nowrap">
+                              {prod.product_name}
+                            </td>
                             <td className="px-4 py-4 text-sm text-gray-500 text-center whitespace-nowrap">
                               {prod.quantity_available}
                             </td>

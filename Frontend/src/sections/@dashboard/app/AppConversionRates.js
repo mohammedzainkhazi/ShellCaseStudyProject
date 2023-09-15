@@ -16,9 +16,9 @@ AppConversionRates.propTypes = {
 };
 
 export default function AppConversionRates({ title, subheader, chartData, ...other }) {
-  const chartLabels = chartData.map((i) => i.label);
+  const chartLabels = chartData.map((i) => i.location_name);
 
-  const chartSeries = chartData.map((i) => i.value);
+  const chartSeries = chartData.map((i) => i.quantity_available);
 
   const chartOptions = useChart({
     tooltip: {
