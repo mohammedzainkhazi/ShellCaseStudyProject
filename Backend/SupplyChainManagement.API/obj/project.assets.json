@@ -13769,19 +13769,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rootzain\\.nuget\\packages\\": {}
+    "C:\\Users\\adlak\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj",
+      "projectUniqueName": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj",
       "projectName": "SupplyChainManagement.API",
-      "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj",
-      "packagesPath": "C:\\Users\\rootzain\\.nuget\\packages\\",
-      "outputPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\obj\\",
+      "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\SupplyChainManagement.API.csproj",
+      "packagesPath": "C:\\Users\\adlak\\.nuget\\packages\\",
+      "outputPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\rootzain\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\adlak\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13795,11 +13795,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj": {
-              "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj"
+            "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj": {
+              "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.BL\\SupplyChainManagement.BL.csproj"
             },
-            "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
-              "projectPath": "E:\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"
+            "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj": {
+              "projectPath": "D:\\Bootcamp\\ShellCaseStudyProject\\Backend\\SupplyChainManagement.Entity\\SupplyChainManagement.Entity.csproj"
             }
           }
         }
@@ -13864,7 +13864,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   },
