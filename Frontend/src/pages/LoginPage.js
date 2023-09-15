@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-// React Hooks 
+// React Hooks
 import { useState } from 'react';
 
 // @mui
@@ -9,15 +9,11 @@ import { Container, Typography, Divider } from '@mui/material';
 
 import SignUp from '../sections/auth/signup/SignUp';
 
-
 // hooks
 import useResponsive from '../hooks/useResponsive';
 // components
-import Logo from '../components/logo';
-// import logoImage from '/assets//shell-gas-logo.png'
 // sections
 import { LoginForm } from '../sections/auth/login';
-
 // ----------------------------------------------------------------------
 
 const StyledRoot = styled('div')(({ theme }) => ({
@@ -44,10 +40,7 @@ const StyledContent = styled('div')(({ theme }) => ({
   justifyContent: 'center',
   flexDirection: 'column',
   padding: theme.spacing(12, 0),
- // background: 'linear-gradient(to bottom, #FFFFE0, #FFFFFF)', // Define your gradient here
-
 }));
-
 
 // ----------------------------------------------------------------------
 
@@ -56,16 +49,6 @@ export default function LoginPage() {
 
   const [signUpPage, setsignUpPage] = useState(false);
 
-
-  const welcomeText = signUpPage
-? "Hi, New User. Glad to Have You with Us"
-: "Hi, Welcome Back";
-
-const pageImage = signUpPage
-? "/assets/illustrations/illustration_sign.png"
-: "/assets/illustrations/illustration_login.png";
-
-
   return (
     <>
       <Helmet>
@@ -73,7 +56,7 @@ const pageImage = signUpPage
       </Helmet>
 
       <StyledRoot>
-      <img
+        <img
           src="/assets/shell-gas-logo.png" // Provide the new image source
           alt="Logo" // Provide alternative text
           style={{
@@ -95,10 +78,10 @@ const pageImage = signUpPage
 
         {mdUp && (
           <StyledSection>
-            <Typography variant="h4" sx={{ px: 5, mt: 10, mb: 5 }}>
-              {welcomeText}
+            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
+              Hi, Welcome Back
             </Typography>
-            <img src={pageImage} alt="login" />
+            <img src="/assets/illustrations/illustration_login.png" alt="login" />
           </StyledSection>
         )}
 
@@ -108,17 +91,27 @@ const pageImage = signUpPage
               Sign in to Minimal
             </Typography>
 
-            {signUpPage ?
-            <Typography variant="body2" sx={{ mb: 5 }}>
-            Already have an account? {''}
-            <button onClick={() => setsignUpPage(!signUpPage)} className='bg-blue-500 hover:bg-yellow-400 px-4 py-2  text-white rounded-lg ml-5'>Login</button>
-          </Typography>
-              :
+            {signUpPage ? (
+              <Typography variant="body2" sx={{ mb: 5 }}>
+                Already have an account? {''}
+                <button
+                  onClick={() => setsignUpPage(!signUpPage)}
+                  className="bg-blue-500 hover:bg-yellow-400 px-4 py-2  text-white rounded-lg ml-5"
+                >
+                  Login
+                </button>
+              </Typography>
+            ) : (
               <Typography variant="body2" sx={{ mb: 5 }}>
                 Don’t have an account? {''}
-                <button onClick={() => setsignUpPage(!signUpPage)} className='bg-green-500 hover:bg-yellow-400 px-4 py-2 text-white rounded-lg ml-5'>Sign Up</button>
+                <button
+                  onClick={() => setsignUpPage(!signUpPage)}
+                  className="bg-green-500 hover:bg-yellow-400 px-4 py-2 text-white rounded-lg ml-5"
+                >
+                  Sign Up
+                </button>
               </Typography>
-            }
+            )}
             <Divider sx={{ my: 3 }}>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 OR

@@ -1,19 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
 // @mui
-import {
-  Stack,
-  Button,
-  Popover,
-  MenuItem,
-  Container,
-  Typography,
-} from '@mui/material';
+import { Stack, Button, Popover, MenuItem, Container, Typography } from '@mui/material';
 
 import axios from 'axios';
 
 // components
 import Iconify from '../components/iconify';
+import AddProductModal from '../components/AddProductModal';
 // sections
 // ----------------------------------------------------------------------
 
@@ -23,15 +17,13 @@ const TABLE_HEAD = [
   { id: 'description', label: 'Description', alignRight: false },
   { id: 'uom', label: 'Unit', alignRight: false },
   { id: 'price', label: 'Price/Unit', alignRight: false },
-  { id: '' },  
+  { id: '' },
 ];
-
-
 
 export default function ProductsPage() {
   const [open, setOpen] = useState(null);
 
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
   const [page, setPage] = useState(0);
 
@@ -45,6 +37,23 @@ export default function ProductsPage() {
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const addProduct =  (newProduct) => {
+    // Add the new product to the list
+    setProducts([...products, newProduct]);
+    setIsModalOpen(false);
+    getProducts();
+  };
+
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
   };
@@ -55,21 +64,22 @@ export default function ProductsPage() {
   // ----------------------------------------------------------------------
 
   const getProducts = async () => {
-    const res = await axios.get('http://localhost:5204/getAllProducts', {
-      withCredentials: false
-    },
-    ).catch(e => console.log(e));
+    const res = await axios
+      .get('http://localhost:5204/getAllProducts', {
+        headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+      })
+      .catch((e) => console.log(e));
 
     if (res.data !== null) {
       return res.data;
     }
+    handleCloseMenu();
     return [];
   };
 
   useEffect(() => {
-    getProducts().then(data=>setProducts(data)); 
-  }, [])
-
+    getProducts().then((data) => setProducts(data));
+  }, []);
 
   return (
     <>
@@ -82,14 +92,20 @@ export default function ProductsPage() {
           <Typography variant="h4" gutterBottom sx={{fontFamily: 'ui-sans-serif',  fontWeight: 'bold', marginTop: '20px', marginLeft: '14px'}}> 
           <span style={{ fontSize: '1.2em' }}>P</span>roducts
           </Typography>
-          <Button className='!bg-blue-500' variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+
+          <Button
+            className="!bg-blue-500"
+            variant="contained"
+            startIcon={<Iconify icon="eva:plus-fill" />}
+            onClick={openModal}
+          >
             New Product
           </Button>
+          <AddProductModal isOpen={isModalOpen} onClose={closeModal} onAddProduct={addProduct} />
         </Stack>
 
         <Stack>
           <section className="container px-4 mx-auto">
-
             <div className="flex flex-col">
               <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -98,34 +114,54 @@ export default function ProductsPage() {
                       <thead className="bg-gray-50 ">
                         <tr>
                           {TABLE_HEAD.map((head, index) => (
-                            <th key={index} scope="col" className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 ">
+                            <th
+                              key={index}
+                              scope="col"
+                              className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 "
+                            >
                               {head.label}
                             </th>
                           ))}
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200  ">
-                        {
-                          products.map((prod, i) => (
-                            <tr key={i}>
-                               <td className="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">
+                        {products.map((prod, i) => (
+                          <tr key={i}>
+                            <td className="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">
                               {prod.product_id}
-                              </td>
-                              <td className="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">
+                            </td>
+                            <td className="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">
                               {prod.product_name}
-                              </td>
-                              <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{prod.product_description}</td>
-                              <td className="px-4 py-4 text-sm text-gray-500 text-center whitespace-nowrap">{prod.unit_of_measure}</td>
-                              <td className="px-4 py-4 text-sm text-gray-500 text-center whitespace-nowrap">{prod.price_per_unit}</td>
-                              <td className="px-4 py-4 text-sm whitespace-nowrap">
-                                <button className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg  hover:bg-gray-100">
-                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                                  </svg>
-                                </button>
-                              </td>
-                            </tr>
-                          ))}
+                            </td>
+                            <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
+                              {prod.product_description}
+                            </td>
+                            <td className="px-4 py-4 text-sm text-gray-500 text-center whitespace-nowrap">
+                              {prod.unit_of_measure}
+                            </td>
+                            <td className="px-4 py-4 text-sm text-gray-500 text-center whitespace-nowrap">
+                              {prod.price_per_unit}
+                            </td>
+                            <td className="px-4 py-4 text-sm whitespace-nowrap">
+                              <button className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg  hover:bg-gray-100">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  strokeWidth="1.5"
+                                  stroke="currentColor"
+                                  className="w-6 h-6"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
+                                  />
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
@@ -134,39 +170,68 @@ export default function ProductsPage() {
             </div>
 
             <div className="flex items-center justify-between mt-6">
-              <a href="#" className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 ">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:-scale-x-100">
+              <a
+                href="#"
+                className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-5 h-5 rtl:-scale-x-100"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                 </svg>
 
-                <span>
-                  previous
-                </span>
+                <span>previous</span>
               </a>
 
               <div className="items-center hidden md:flex gap-x-3">
-                <a href="#" className="px-2 py-1 text-sm text-blue-500 rounded-md  bg-blue-100/60">1</a>
-                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">2</a>
-                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">3</a>
-                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">...</a>
-                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">12</a>
-                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">13</a>
-                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">14</a>
+                <a href="#" className="px-2 py-1 text-sm text-blue-500 rounded-md  bg-blue-100/60">
+                  1
+                </a>
+                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">
+                  2
+                </a>
+                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">
+                  3
+                </a>
+                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">
+                  ...
+                </a>
+                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">
+                  12
+                </a>
+                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">
+                  13
+                </a>
+                <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md   hover:bg-gray-100">
+                  14
+                </a>
               </div>
 
-              <a href="#" className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 ">
-                <span>
-                  Next
-                </span>
+              <a
+                href="#"
+                className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 "
+              >
+                <span>Next</span>
 
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:-scale-x-100">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-5 h-5 rtl:-scale-x-100"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
               </a>
             </div>
           </section>
         </Stack>
-
       </Container>
 
       <Popover

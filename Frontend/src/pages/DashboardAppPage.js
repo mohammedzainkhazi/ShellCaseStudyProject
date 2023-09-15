@@ -28,11 +28,12 @@ export default function DashboardAppPage() {
   const [pendingOrders, setPendingOrders] = useState(0);
   const [deliveredOrders, setDeliveredOrders] = useState(0);
   const [totalProducts, setTotalProducts] = useState(0);
-
+  const [topProducts, setTopProducts] = useState([]);
+  const [pendingTasks, setPendingTasks] = useState([]);
 
   const getAllOrders = async () => {
     const res = await axios.get('http://localhost:5204/getAllOrders', {
-      withCredentials: false
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
     },
     ).catch(e => setTotalOrders(-1)).then(
       res => (
@@ -43,7 +44,7 @@ export default function DashboardAppPage() {
 
   const getPendingOrders = async () => {
     const res = await axios.get('http://localhost:5204/getAllOrders', {
-      withCredentials: false
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
     },
     ).catch(e => setPendingOrders(-1)).then(
       res => (res.data.filter(row => (
@@ -56,8 +57,13 @@ export default function DashboardAppPage() {
 
   const getDeliveredOrders = async () => {
     const res = await axios.get('http://localhost:5204/getAllOrders', {
-      withCredentials: false
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
     },
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}` 
+      }
+    }
     ).catch(e => setDeliveredOrders(-1)).then(
       res => (res.data.filter(row => (
         row.status === 'Delivered'
@@ -69,7 +75,7 @@ export default function DashboardAppPage() {
 
   const getAllProducts = async () => {
     const res = await axios.get('http://localhost:5204/getAllProducts', {
-      withCredentials: false
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
     },
     ).catch(e => setTotalProducts(-1)).then(
       res => (
@@ -77,13 +83,44 @@ export default function DashboardAppPage() {
       )
     )
   };
+  const getTopProducts = async () => {
+    const res = await axios.get('http://localhost:5204/getTopProducts', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => setTopProducts([])).then(
+      res => (
+        res.data.length ? setTopProducts(res.data) : setTopProducts([])
+      )
+    )
+  };
+
+  const getPendingTasks = async () => {
+    const res = await axios.get('http://localhost:5204/getAllOrders', {
+     headers: {'Authorization':`Bearer ${localStorage.getItem('token')}`}
+    },
+    ).catch(e => setPendingOrders(-1)).then(
+      res => (res.data.filter(row => (
+        row.status === 'Placed'
+      )
+      ))
+    ).then(data=>data.length>=1 ? setPendingTasks(data) : setPendingTasks([])
+    )
+  };
 
   useEffect(() => {
+    getAllOrders();
+    getPendingOrders();
+    getDeliveredOrders();
+    getAllProducts();
+    getTopProducts();
+    getPendingTasks();
    setInterval(() => {
     getAllOrders();
     getPendingOrders();
     getDeliveredOrders();
     getAllProducts();
+    getTopProducts();
+    getPendingTasks();
    }, 10000);
   }, [])
 
@@ -95,11 +132,14 @@ export default function DashboardAppPage() {
       <Helmet>
         <title> Dashboard </title>
       </Helmet>
-
+{/* 
       <Container maxWidth="xl" sx={{ background: '#fae9ca',  padding: 0, margin: 0 }}>
         <Typography variant="h4" sx={{ mb: 5, fontFamily: 'ui-sans-serif',  fontWeight: 'bold', marginTop: '20px', marginLeft: '3px'}} >
-          Hi, Welcome back <span className='font-bold text-2xl text-[#fc5c09]'>{JSON.parse(localStorage.getItem('user')).user_name}</span>
-        </Typography>
+          Hi, Welcome back <span className='font-bold text-2xl text-[#fc5c09]'>{JSON.parse(localStorage.getItem('user')).user_name}</span> */}
+      <Container maxWidth="xl" sx={{ background: '#fae9ca',  padding: 0, margin: 0 }}>
+        <Typography variant="h4" sx={{ mb: 5, fontFamily: 'ui-sans-serif',  fontWeight: 'bold', marginTop: '20px', marginLeft: '3px' }}>
+          Hi, Welcome back 
+          <span className='font-bold text-2xl text-[#fc5c09]'>{JSON.parse(localStorage.getItem('user')).user_name}</span>        </Typography>
 
         <Grid container spacing={3}>
        
@@ -112,16 +152,43 @@ export default function DashboardAppPage() {
       
           <Grid item xs={12} sm={6} md={3}>
           <div data-aos="zoom-in-up">
-            <AppWidgetSummary title="Pending Orders" total={pendingOrders} color="info" imageSrc={'/assets/icons/ic_pending_order.svg'} />
+          <AppWidgetSummary
+              title="Pending Orders"
+              total={pendingOrders}
+              color="info"
+              imageSrc={'/assets/icons/ic_pending_order.svg'}
+            />
             </div>
             </Grid>
     
           
           <Grid item xs={12} sm={6} md={3}>
           <div data-aos="zoom-in-up">
-            <AppWidgetSummary title="Orders Delivered" total={deliveredOrders} color="warning" imageSrc={'/assets/icons/ic_deliver.svg'} />
-            </div>
+          <AppWidgetSummary
+              title="Orders Delivered"
+              total={deliveredOrders}
+              color="warning"
+              imageSrc={'/assets/icons/ic_deliver.svg'}
+            />
+             </div>
             </Grid>
+            
+            {/* <AppWidgetSummary
+              title="Pending Orders"
+              total={pendingOrders}
+              color="info"
+              imageSrc={'/assets/icons/ic_pending_order.svg'}
+            />
+          </Grid> */}
+
+          {/* <Grid item xs={12} sm={6} md={3}>
+            <AppWidgetSummary
+              title="Orders Delivered"
+              total={deliveredOrders}
+              color="warning"
+              imageSrc={'/assets/icons/ic_deliver.svg'}
+            />
+          </Grid> */}
 
           
           <Grid item xs={12} sm={6} md={3}>
@@ -134,14 +201,17 @@ export default function DashboardAppPage() {
           <div data-aos="fade-right">
             <AppCurrentVisits
               title="Top Selling Products"
-              chartData={[
-                { label: 'o', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
-                { label: 'India', value: 4443 },
-                { label: 'India', value: 4443 },
-              ]}
+              chartData={
+                // [
+                // { label: 'America', value: 4344 },
+                // { label: 'Asia', value: 5435 },
+                // { label: 'Europe', value: 1443 },
+                // { label: 'Africa', value: 4443 },
+                // { label: 'India', value: 4443 },
+                // { label: 'India', value: 4443 },
+              // ]
+              topProducts
+            }
             // chartColors={[
             //   theme.palette.primary.main,
             //   theme.palette.info.main,
@@ -196,13 +266,10 @@ export default function DashboardAppPage() {
             <div data-aos="fade-left">
             <AppTasks
               title="Pending Orders"
-              list={[
-                { id: '1', label: 'Create FireStone Logo' },
-                { id: '2', label: 'Add SCSS and JS files if required' },
-                { id: '3', label: 'Stakeholder Meeting' },
-                { id: '4', label: 'Scoping & Estimations' },
-                { id: '5', label: 'Sprint Showcase' },
-              ]}
+              list={
+                pendingTasks
+              }
+              getPendingTasks={getPendingTasks}
             />
             </div>
           </Grid>

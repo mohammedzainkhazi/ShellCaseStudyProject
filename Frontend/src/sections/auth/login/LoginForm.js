@@ -32,7 +32,9 @@ export default function LoginForm() {
 
     if(res.data !== null){
       setError(false);
-      localStorage.setItem('user',JSON.stringify(res.data));
+      localStorage.setItem('token',(res.data.token));
+      localStorage.setItem('user',JSON.stringify(res.data.user));
+      console.log(res.data.token);
       navigate('/dashboard', { replace: true });
     }
     else{

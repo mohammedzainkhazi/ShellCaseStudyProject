@@ -1,7 +1,0 @@
-E:\ShellCaseStudyProject\Backend\SupplyChainManagement\obj\Release\net6.0\linux-x64\PubTmp\Out\appsettings.Development.json
-E:\ShellCaseStudyProject\Backend\SupplyChainManagement\obj\Release\net6.0\linux-x64\PubTmp\Out\appsettings.json
-E:\ShellCaseStudyProject\Backend\SupplyChainManagement\obj\Release\net6.0\linux-x64\PubTmp\Out\SupplyChainManagement.API.pdb
-E:\ShellCaseStudyProject\Backend\SupplyChainManagement\obj\Release\net6.0\linux-x64\PubTmp\Out\SupplyChainManagement.BL.pdb
-E:\ShellCaseStudyProject\Backend\SupplyChainManagement\obj\Release\net6.0\linux-x64\PubTmp\Out\SupplyChainManagement.Data.pdb
-E:\ShellCaseStudyProject\Backend\SupplyChainManagement\obj\Release\net6.0\linux-x64\PubTmp\Out\SupplyChainManagement.Entity.pdb
-E:\ShellCaseStudyProject\Backend\SupplyChainManagement\obj\Release\net6.0\linux-x64\PubTmp\Out\SupplyChainManagement.API
